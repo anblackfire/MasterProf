@@ -1,0 +1,113 @@
+ body{
+    background-color:rgb(236, 230, 230);
+    /* background-color: rgb(221, 241, 231); */
+    /* background-color: #c0a1b1; */
+}
+
+#radialselect{
+    text-align: center;
+    padding-right: 5%;
+    padding-left: 5%;
+    
+}
+
+.diva{
+    height: 10px;
+    width: 5%;
+    
+}
+/* .diva2{
+   
+    padding-right: 25px; 
+    border-right: 3px solid rgb(238, 238, 248);
+} */
+
+#PIC{
+    padding: 3%;
+        /* height: 100%;
+        width: 100%; */
+}
+/* #IMG{
+    padding: 3%;
+    height: 100%;
+    width: 100%;
+} */
+
+
+.block{
+    
+    background-color: white;
+    
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 12px 12px 12px 12px;
+    -moz-border-radius: 12px 12px 12px 12px;
+    -webkit-border-radius: 12px 12px 12px 12px;
+
+    /* padding: 50px; */
+    /* padding-left: 15%; */
+    
+} 
+#MasterProf{
+
+    padding-top: 5px;
+    justify-content: unset;
+    text-align: left;
+    float: left;
+    
+}
+
+
+
+.titulo{
+    font-size: 36px;
+}
+#descrip{
+    
+    text-align: justify;
+    text-indent: 35px;
+ }
+
+
+ .cost{
+    font-size: 25px;
+    font-weight: 100;
+    color: #007C91;
+ }
+ /* .no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  
+    > .col,
+    > [class*="col-"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  } */
+
+  .profile-text{
+    width: 100%;
+  }
+  .input-group-text{
+    background-color: #aaaaaa;
+   
+  }
+  .navbar{
+    background-color: #3A5F6F;
+  }
+
+ .material-icons {
+    padding-right: 10px; 
+    color: white;
+  }
+  .btn-dark{
+    background-color:#3A5F6F;
+     border-color:#3A5F6F
+  }
+
+
+.selectpicker{
+    border: 1px solid black;
+}
+
+

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pagina de Buscas</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/js.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/css.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"> -->
+
+    <!-- Latest compiled and minified JavaScript -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> -->
+</head>
+
+<!-- rgb(136, 27, 23) -->
+<!-- rgb(240, 88, 32) -->
+
+<body>
+    <div class="row">
+        <div class="col">
+            <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav" id="navbarUL">
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Home
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row  justify-content-center">
+        <div class="col-10 text-center">
+            <h1 class="display-4">Pagina de Buscas</h1>
+
+
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="input-group input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default" style="color:white">Pesquise palavras-chave</span>
+                </div>
+                <input type="text" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Nome ou Localização por exemplo"
+                    id="filterText" class="form-control">
+            </div>
+
+
+            <div class="input-group input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default" style="color:white">Selecione uma categoria</span>
+                </div>
+                <select class=" form-control" id="select" title="Escolha suas categorias" disabled>
+                    <option value="">Selecione</option>
+                    <option value="musica">Música</option>
+                    <option value="idioma">Idioma</option>
+                    <option value="esportes">Esportes</option>
+                </select>
+            </div>
+            <div class="row justify-content-center">
+
+                <div class="col-12 col-md-6">
+                    <div class="input-group" id="radialselect">
+                        <div class="input-group-text">
+                            <input type="radio" name="sort" style="color:white" value="profile" checked id="prof" aria-label="Radio button for following text input">
+                        </div>
+                        <label for="profile" class="form-control">Perfil</label>
+
+                        <div class="input-group-text">
+                            <input type="radio" name="sort" style="color:white" value="course" id="courses" aria-label="Radio button for following text input">
+                        </div>
+                        <label for="course" class="form-control">Curso</label>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center">
+        <div class="col-8 text-center">
+            <button type="button" id="btnFilter" class="btn btn-dark btn-lg">Buscar</button>
+        </div>
+    </div>
+    <br>
+
+    <div class="row justify-content-center">
+        <div class="col-10 text-center">
+            <!-- substituir table -->
+            <div id="buildHere" class="container">
+
+            </div>
+
+        </div>
+    </div>
+
+    <script>     
+
+        // gatilho       
+        document.getElementById("btnFilter").addEventListener("click", function () {
+            Start();
+        });
+
+        //reset da tag caso selecione perfil novamente
+        document.getElementById("prof").addEventListener("click", function () {
+            document.getElementById('select').options[0].selected = 'Selecione';
+            document.getElementById("select").disabled = true;
+        });
+        document.getElementById("courses").addEventListener("click", function () {
+
+            document.getElementById("select").disabled = false;
+        });
+
+        // var tags = [];
+        // var filter = "";
+        // var hasTag = "";
+
+        Start();
+
+        function Start() {
+            var x = document.getElementsByName("sort");
+            var filter = document.getElementById("filterText").value.toUpperCase();
+            var tags = document.getElementById("select").value;
+            // limpa tabela e começa os filtros
+            ClearTable();
+            FilterSort(x, filter, tags);
+        }
+
+        // function tagGrabber(x, filter, tags) {
+        //     var a = document.getElementById("courseTag");
+        //     for (var i = 0; i < a.options.length; i++) {
+        //         if (a.options[i].selected == true) {
+        //             tags.push(a.options[i].value);
+
+        //         }
+        //     }
+
+        //     FilterSort(x, filter, tags);
+        // }
+
+        function FilterSort(x, filter, tags) {
+            //filtrar o tipo de busca por perfil ou por aula marcados nos dois radio
+            for (var i = 0; i < x.length; i++) {
+                //se achar o radio filtrado passa o valor dele
+                if (x[i].checked) {
+                    x = x[i].value;
+                    // confere o valor e determina o array correspondente
+                    if (x == "profile") {
+                        //procura por perfil
+                        // alert("buscando perfil");
+                        x = users;
+                        FilterTag(x, filter, tags);
+                    }
+                    else if (x == "course") {
+                        // procura por aulas
+                        // alert("buscando aulas");
+                        x = courses;
+                        FilterTag(x, filter, tags);
+                    }
+                }
+            }
+        }
+
+
+        //receber tipo de filtro para determinar se separa por tags ou não
+        function FilterTag(x, filter, tags) {
+
+            for (let i = 0; i < x.length; i++) {
+                const data = x[i];
+                if (tags != "") {
+                    var hasTag = data.tag.indexOf(tags) > -1;
+                    if (hasTag) {
+
+                        FilterArray(x, filter, data)
+                    }
+
+                }
+                else {
+                    FilterArray(x, filter, data)
+
+                }
+            }
+        }
+
+
+        //Filtrar por texto e entregar outro array
+        function FilterArray(x, filter, data) {
+            var arrayFiltrado = [];
+            var hasFilter = data.title.toUpperCase().indexOf(filter) > -1;
+            // console.log(filter);
+            // hasFilter sera true se encontrar data.title.toUpperCase().indexOf(filter) > -1;
+            // opção extra para o tipo de filtro
+            if (x == courses) {
+
+                hasFilter |= data.owner.title.toUpperCase().indexOf(filter) > -1;
+                hasFilter |= data.owner.location.toUpperCase().indexOf(filter) > -1;
+
+
+            }
+            else if (x == users) {
+
+                hasFilter |= data.location.toUpperCase().indexOf(filter) > -1;
+            }
+
+            // .push do conteudo encontrado para o array filtrado
+            if (hasFilter) {
+                arrayFiltrado.push(data);
+            }
+
+
+            CreateElements(x, arrayFiltrado);
+        }
+
+        // criar elementos necessários para mostrar informações e colocar na tabela posteriormente
+        function CreateElements(x, arrayFiltrado) {
+            // var data;
+            // para cada indice que veio do array determinado pela busca
+            for (let i = 0; i < arrayFiltrado.length; i++) {
+                var obj = new LetterOBJ;
+                //criar elementos de img e labels
+                const element = arrayFiltrado[i];
+
+
+
+                Content(x, arrayFiltrado, obj, i);
+            }
+        }
+
+        // busca o conteudo de cada elemento do array e manda para o build table
+        function Content(x, arrayFiltrado, obj, i) {
+            // Atribuir o conteudo que interessa baseado no filtro original (perfil ou aula)
+            if (x == users) {
+                obj.currentID = arrayFiltrado[i].login;
+                obj.ownerTitle.className = "lead  text-center titulo";
+                obj.IMG.src = "img/" + arrayFiltrado[i].pic;
+                obj.ownerTitle.innerHTML = arrayFiltrado[i].title;
+                obj.location.innerHTML = arrayFiltrado[i].location;
+                obj.descrip.innerHTML = arrayFiltrado[i].descrip;
+
+                BuildTableProfiles(obj);
+
+            }
+
+            else if (x == courses) {
+                obj.currentID = arrayFiltrado[i].id;
+                obj.IMG.src = "img/" + arrayFiltrado[i].owner.pic;
+                obj.courseTitle.innerHTML = arrayFiltrado[i].title;
+                obj.ownerTitle.innerHTML = arrayFiltrado[i].owner.title;
+                obj.location.innerHTML = arrayFiltrado[i].owner.location;
+                obj.descrip.innerHTML = arrayFiltrado[i].descrip;
+                obj.cost.innerHTML = "R$" + arrayFiltrado[i].cost;
+
+                BuildTableCourses(obj);
+            }
+
+
+        }
+
+        // construir tabela com img e conteudo recebidos
+        function BuildTableProfiles(obj) {
+            // insere linha
+            var here = document.getElementById("buildHere")
+
+            var divRow = document.createElement("div");
+            var divImg = document.createElement("div");
+            var divTxt = document.createElement("div");
+            var divCst = document.createElement("div");
+
+            divRow.className = "row justify-content-md-center align-items-center block link";
+            divRow.id = obj.currentID;
+            divRow.onclick = function () {
+                sessionStorage.IDSender = obj.currentID;
+                location.href = "userProfile.html";
+            };
+            // document.getElementById(divRow.id).addEventListener("click", function () {
+            //     view();
+            // });
+
+            // location.href = "userProfile.html";
+            divImg.className = "col-md-auto tdimg";
+            divTxt.className = "col-10 col-lg-8";
+            divCst.className = "col-sm ";
+
+            obj.DIV2.insertAdjacentElement("afterbegin", obj.IMG);
+            divImg.insertAdjacentElement("afterbegin", obj.DIV2);
+            divCst.insertAdjacentElement("afterbegin", obj.location);
+            divTxt.insertAdjacentElement("afterbegin", obj.descrip);
+            divTxt.insertAdjacentElement("afterbegin", document.createElement("br"));
+            divTxt.insertAdjacentElement("afterbegin", obj.ownerTitle);
+            here.insertAdjacentElement("afterbegin", document.createElement("br"));
+            divRow.insertAdjacentElement("afterbegin", divCst);
+            divRow.insertAdjacentElement("afterbegin", divTxt);
+            divRow.insertAdjacentElement("afterbegin", divImg);
+
+            here.insertAdjacentElement("afterbegin", divRow);
+
+        }
+
+        // construir tabela com img e conteudo recebidos
+        function BuildTableCourses(obj) {
+            // insere linha
+            var here = document.getElementById("buildHere")
+
+            var divRow = document.createElement("div");
+            var divImg = document.createElement("div");
+            var divTxt = document.createElement("div");
+            var divCst = document.createElement("div");
+
+            divRow.className = "row justify-content-md-center align-items-center block link";
+            divRow.id = obj.currentID;
+            // document.getElementById(divRow.id).addEventListener("click", function () {
+            //     view();
+            // });
+            divRow.onclick = function () {
+                sessionStorage.courseSender = obj.currentID;
+                location.href = "coursesProfile.html";
+            };
+
+            // location.href = "courseProfile.html";
+            divImg.className = "col-md-auto tdimg";
+            divTxt.className = "col-10 col-lg-8";
+            divCst.className = "col-sm";
+
+            obj.DIV2.insertAdjacentElement("afterbegin", obj.IMG);
+            divImg.insertAdjacentElement("afterbegin", obj.DIV2);
+            divCst.insertAdjacentElement("afterbegin", obj.location);
+            divCst.insertAdjacentElement("afterbegin", document.createElement("br"));
+            divCst.insertAdjacentElement("afterbegin", obj.cost);
+
+            divTxt.insertAdjacentElement("afterbegin", obj.descrip);
+            divTxt.insertAdjacentElement("afterbegin", document.createElement("br"));
+            // divTxt.insertAdjacentElement("afterbegin", document.createElement("br"));
+            divTxt.insertAdjacentElement("afterbegin", obj.ownerTitle);
+            divTxt.insertAdjacentElement("afterbegin", document.createElement("br"));
+            divTxt.insertAdjacentElement("afterbegin", obj.courseTitle);
+            here.insertAdjacentElement("afterbegin", document.createElement("br"));
+
+            divRow.insertAdjacentElement("afterbegin", divCst);
+            divRow.insertAdjacentElement("afterbegin", divTxt);
+            divRow.insertAdjacentElement("afterbegin", divImg);
+
+            here.insertAdjacentElement("afterbegin", divRow);
+
+
+        }
+
+        // autoexplicativo
+        function ClearTable() {
+            var table = document.getElementById("buildHere");
+            table.innerHTML = ""
+        }
+
+        function LetterOBJ(currentID, courseTitle, ownerTitle, location, descrip, cost, IMG, DIV, DIV2) {
+            this.currentID = "";
+            this.courseTitle = document.createElement("label");
+            this.courseTitle.id = "courseTitle";
+            this.courseTitle.className = "lead  text-center titulo";
+            this.ownerTitle = document.createElement("label");
+            this.ownerTitle.id = "ownerTitle";
+            this.ownerTitle.className = "lead    text-center";
+            this.location = document.createElement("label");
+            this.location.id = "location";
+            this.location.className = "lead";
+            this.descrip = document.createElement("label");
+            this.descrip.id = "descrip";
+            this.descrip.className = "lead    float-left";
+            this.cost = document.createElement("label");
+            this.cost.id = "cost";
+            this.cost.className = "lead cost";
+            this.IMG = document.createElement("IMG");
+            this.IMG.className = "rounded-circle";
+            this.IMG.id = "IMG";
+            this.IMG.width = "124";
+            this.IMG.height = "124";
+            this.DIV = document.createElement("div");
+            this.DIV.className = "diva";
+            this.DIV2 = document.createElement("div");
+            this.DIV2.className = "diva2";
+        }
+
+        // function view(send) {
+
+        // }
+
+        // var divLinks = document.getElementsByClassName("link");
+        // divLinks.forEach(element => {
+        //     console.log(element.id);
+        // });
+
+        // for (key in divLinks) {
+        //     console.log(key);
+        // this.addEventListener("click", function () {
+        //     var send = this.id;
+        //     view(send);
+        // });
+        // }
+
+
+
+        // document.getElementsByClassName("link").addEventListener("click", function () {
+        //     var send = this.id;
+        //     view(send);
+        // });
+
+        agr();
+        document.getElementById("item01").className += " active";
+        // myFunction();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pagina de Buscas</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/js.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/css.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="row">
+        <div class="col">
+            <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav" id="navbarUL">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home
+
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row  justify-content-center">
+        <div class="col-10 text-center">
+            <h1 class="display-3" id="h1">Pagina de Usuário</h1>
+
+        </div>
+    </div>
+    <br>
+
+
+
+    <br>
+
+    <div class="row justify-content-center ">
+        <div class="col-10 block">
+            <div class="row justify-content-center ">
+                <div class="col-12 col-md-4 justify-content-center text-center">
+                    <img src="img/dog.jpg" class="rounded " alt="..." id="PIC">
+                </div>
+
+                <div class="col-12 col-md-8 " id="editHERE">
+                    <label id="UPShowName" class="display-4 text-center profile-text">mostrar Nome do usuario</label>
+                    </br>
+                    <label id="UPShowDescrip" class="lead    text-left profile-text">mostrar Descrição do usuario</label>
+                    </br>
+                    <label id="UPShowMail" class="lead    text-left profile-text">mostrar E-mail do usuario</label>
+                    </br>
+
+                </div>
+            </div>
+
+            <div class="row justify-content-center ">
+                <div class="col">
+                    <label class="lead" style=" width: 100%">Professor das aulas:</label>
+                    </br>
+                    <table id="tableCourses">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        // document.getElementById("UPbtnSendID").addEventListener("click", function () {
+        //     var id = document.getElementById("UPID").value;
+        //     SearchBuildInformations(id)
+        // });
+
+        var id = "";
+        if (sessionStorage.IDSender) {
+            id = sessionStorage.IDSender;
+            // sessionStorage.IDSender = "";
+
+        } else {
+            id = sessionStorage.getItem("userLogged");
+            var now = document.getElementById("h1");
+            var nowbtn = document.createElement("button");
+            nowbtn.type = "button";
+            nowbtn.className = "btn btn-dark btn-lg";
+            nowbtn.innerHTML = "Editar";
+            nowbtn.onclick = function () {
+                editProfile();
+            }
+            now.innerHTML = "Seu Perfil";
+            now.insertAdjacentElement("afterend", nowbtn);
+            now.insertAdjacentElement("afterend", document.createElement("br"));
+
+
+        }
+
+
+
+        function SearchBuildInformations(id) {
+            for (let i = 0; i < users.length; i++) {
+                const element = users[i];
+                if (id == element.login) {
+                    var img = document.getElementById("PIC")
+                    img.className = "rounded-circle";
+                    img.src = "img/" + element.pic;
+                    img.width = "224";
+                    img.height = "224";
+                    document.getElementById("UPShowName").innerHTML = element.title;
+                    document.getElementById("UPShowDescrip").innerHTML = element.descrip;
+                    document.getElementById("UPShowMail").innerHTML = element.mail;
+
+                    break;
+                }
+                else if (i == users.length - 1) {
+                    alert("nenhum ID encontrado");
+                    document.getElementById("UPShowName").innerHTML = "mostrar Nome do usuario";
+                    document.getElementById("UPShowDescrip").innerHTML = "mostrar Descrição do usuario";
+                    document.getElementById("UPShowMail").innerHTML = "mostrar E-mail do usuario";
+
+                }
+            }
+            SearchBuildTable(id);
+        }
+
+        function clearTable() {
+            var table = document.getElementById("tableCourses");
+            table.innerHTML = "";
+        }
+
+        function SearchBuildTable(id) {
+            clearTable();
+            var table = document.getElementById("tableCourses");
+            var conteudo = "";
+
+            for (let i = 0; i < courses.length; i++) {
+                const element = courses[i];
+
+                if (id == element.owner.login) {
+                    var row = table.insertRow(0);
+                    var cell1 = row.insertCell(0);
+                    conteudo = element.title;
+                    cell1.innerHTML = conteudo;
+                    cell1.style = "background-color: #aaaaaa";
+                    cell1.onclick = function () {
+                        sessionStorage.courseSender = element.id;
+                        location.href = "coursesProfile.html";
+                    };
+
+                }
+
+                else if (i == courses.length - 1 && table.innerHTML == "") {
+
+                    var row = table.insertRow(0);
+                    var cell1 = row.insertCell(0);
+                    conteudo = "Nenhuma aula encontrada";
+                    cell1.innerHTML = conteudo;
+
+                }
+            }
+        }
+        function clear() {
+            var prof = document.getElementById("editHERE");
+            prof.innerHTML = "";
+        }
+
+        function objEditProf(title, mail, senha, descrip, save, div) {
+            this.title = title;
+            this.mail = mail;
+            this.senha = senha;
+            this.descrip = descrip;
+            this.save = save;
+            this.div = div;
+        }
+
+        function createInputs() {
+            var obj = new objEditProf;
+            var classe = "form-control";
+            obj.title = document.createElement("input");
+            obj.title.id = "title";
+            obj.title.type = "text";
+            obj.title.placeholder = document.getElementById("UPShowName").innerHTML;
+            obj.title.className = classe;
+            obj.mail = document.createElement("input");
+            obj.mail.id = "mail";
+            obj.mail.type = "text";
+            obj.mail.placeholder = document.getElementById("UPShowMail").innerHTML;
+            obj.mail.className = classe;
+            obj.pass = document.createElement("input");
+            obj.pass.id = "pass";
+            obj.pass.type = "text";
+            obj.pass.placeholder = "Insira uma nova senha";
+            obj.pass.className = classe;
+            obj.descrip = document.createElement("textarea");
+            obj.descrip.id = "descrip";
+            obj.descrip.type = "text";
+            obj.descrip.placeholder = document.getElementById("UPShowDescrip").innerHTML;
+            obj.descrip.className = classe;
+            obj.save = document.createElement("button");
+            obj.save.type = "button";
+            obj.save.className = "btn btn-dark btn-lg";
+            obj.save.innerHTML = "Salvar";
+            obj.save.onclick = function () {
+                sendEditProf(obj);
+            }
+            obj.div = document.createElement("div");
+            obj.div.className = "col text-center";
+            editBuilder(obj);
+        }
+
+        function editBuilder(obj) {
+            clear();
+            var prof = document.getElementById("editHERE");
+            obj.div.insertAdjacentElement("afterbegin", obj.save);
+
+            prof.insertAdjacentElement("afterbegin", obj.div);
+            prof.insertAdjacentElement("afterbegin", document.createElement("br"));
+            prof.insertAdjacentElement("afterbegin", obj.descrip);
+            prof.insertAdjacentElement("afterbegin", document.createElement("br"));
+            prof.insertAdjacentElement("afterbegin", obj.pass);
+            prof.insertAdjacentElement("afterbegin", document.createElement("br"));
+            prof.insertAdjacentElement("afterbegin", obj.mail);
+            prof.insertAdjacentElement("afterbegin", document.createElement("br"));
+            prof.insertAdjacentElement("afterbegin", obj.title);
+        }
+
+        function sendEditProf(obj) {
+            for (let i = 0; i < users.length; i++) {
+                const element = users[i];
+                if (sessionStorage.userLogged == element.login) {
+                    for (key in obj) {
+                        var str = key;
+                        var now = document.getElementById(str);
+
+                        if (now) {
+                            var nowID = now.id;
+                            if (now.value) {
+
+                                element[nowID] = document.getElementById(nowID).value;
+
+
+                            }
+                        }
+                    }
+
+                }
+            }
+            alert("Peril alterado com sucesso");
+            location.href = "userProfile.html";
+        }
+
+        function editProfile() {
+
+            createInputs();
+        }
+
+        SearchBuildInformations(id);
+        agr();
+        // myFunction();
+        if (sessionStorage.userLogged) {
+            document.getElementById("item04").className += " active";
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

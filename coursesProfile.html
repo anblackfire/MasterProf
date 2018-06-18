@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pagina de Buscas</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/js.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/css.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col">
+            <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav" id="navbarUL">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home
+
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row  justify-content-center">
+        <div class="col-10 text-center">
+            <h1 class="display-3">Pagina da Aula</h1>
+        </div>
+    </div>
+    <br>
+
+    <!-- <div class="row justify-content-center">
+        <div class="col-4,5">
+            <input type="text" placeholder="Informe o ID do curso" id="CPID">
+            <button type="button" id="CPbtnSendID">Pesquisar ID do curso</button>
+        </div>
+    </div>
+    </br> -->
+
+    <div class="row justify-content-center ">
+        <div class="col-10 block">
+            <div class="row justify-content-center ">
+                <div class="col-12 col-md-4 text-center">
+                    <img src="" class="rounded float-left" alt="..." id="PIC">
+                </div>
+
+                <div class="col-12 col-md-8 ">
+                    <label class="display-4  text-center profile-text" id="CPShowTitle">mostrar Titulo do curso</label>
+                    </br>
+                    <label id="CPShowOwner" class=" text-center profile-text">mostrar o Professor do curso</label>
+                    </br>
+                    <label id="CPShowTag" class="lead text-center profile-text">mostrar as Tags do curso</label>
+                    </br>
+                    <label class="lead text-left profile-text" id="CPShowDescrip">mostrar Descrição do curso</label>
+                    </br>
+                    </br>
+                    <label id="CPShowCost" class="lead  text-center profile-text cost">mostrar custo do curso</label>
+                    </br>
+                </div>
+
+            </div>
+            <div class="input-group  mb-3 justify-content-center">
+                <div>
+                    <div class="input-group  mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                        </div>
+                        <select class="selectpicker" id="dias" multiple title="Dias da semana">
+
+                            <option value="2">DOM</option>
+                            <option value="2">SEG</option>
+                            <option value="2">TER</option>
+                            <option value="2">QUA</option>
+                            <option value="2">QUI</option>
+                            <option value="2">SEX</option>
+                            <option value="2">SAB</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div class="input-group  mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                        </div>
+                        <select class="selectpicker" id="horas" multiple title="Horários">
+
+                            <option value="2">08:00</option>
+                            <option value="2">09:00</option>
+                            <option value="2">10:00</option>
+                            <option value="2">11:00</option>
+                            <option value="2">12:00</option>
+                            <option value="2">13:00</option>
+                            <option value="2">14:00</option>
+                            <option value="2">15:00</option>
+                            <option value="2">16:00</option>
+                            <option value="2">17:00</option>
+                            <option value="2">18:00</option>
+                            <option value="2">19:00</option>
+                            <option value="2">20:00</option>
+
+                        </select>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-8 text-center ">
+                    <button type="button" id="btnContratar" class="btn btn-dark btn-lg">Contratar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var dayToCompare = "";
+        var horariosToCompare = "";
+
+
+
+        var id = sessionStorage.courseSender;
+        SearchBuild(id)
+        // sessionStorage.IDSender = "";
+
+        function SearchBuild(id) {
+
+
+
+            for (let i = 0; i < courses.length; i++) {
+                const element = courses[i];
+                if (id == element.id) {
+                    var img = document.getElementById("PIC")
+                    img.src = "img/" + element.owner.pic;
+                    img.className = "rounded-circle";
+                    img.width = "224";
+                    img.height = "224";
+                    img.onclick = function () {
+                        sessionStorage.IDSender = element.owner.login;
+                        location.href = "userProfile.html";
+                    };
+                    document.getElementById("CPShowTitle").innerHTML = element.title;
+                    document.getElementById("CPShowDescrip").innerHTML = element.descrip;
+                    document.getElementById("CPShowOwner").innerHTML = element.owner.title;
+                    document.getElementById("CPShowCost").innerHTML = "R$" + element.cost;
+                    document.getElementById("CPShowTag").innerHTML = element.tag;
+                    dayToCompare = element.dias;
+                    horariosToCompare = element.horas;
+
+                    break;
+                }
+                else if (i == courses.length) {
+                    alert("nenhum ID encontrado");
+                    document.getElementById("CPShowTitle").innerHTML = "mostrar Titulo do curso";
+                    document.getElementById("CPShowDescrip").innerHTML = "mostrar Descrição do curso";
+                    document.getElementById("CPShowOwner").innerHTML = "mostrar o Professor do curso";
+                    document.getElementById("CPShowCost").innerHTML = "mostrar custo do curso";
+                    document.getElementById("CPShowTag").innerHTML = "mostrar as Tags do curso";
+                }
+            }
+            Schudule(dayToCompare, horariosToCompare);
+        }
+
+        function Schudule(dayToCompare, horariosToCompare) {
+
+            var day = document.getElementById("dias");
+            var horarios = document.getElementById("horas");
+
+            for (var i = 0; i < day.options.length; i++) {
+                if (dayToCompare[i] != 0) {
+                    day.options[i].disabled = true;
+
+                   
+                }
+                else{
+
+                    
+                }
+
+            }
+
+            for (var i = 0; i < horarios.options.length; i++) {
+                if (horariosToCompare[i] != 0) {
+                    horarios.options[i].disabled = true;
+
+                }
+
+            }
+
+            // console.log(day);
+            // console.log(horariosToCompare);
+        }
+
+        document.getElementById("btnContratar").addEventListener("click", function () {
+            Contract();
+            // SearchBuild(id);            
+        });
+
+        function Contract() {
+            var a = document.getElementById("dias");
+            var b = document.getElementById("horas");
+            // dias = [];
+            // horas = [];
+            for (var i = 0; i < a.options.length; i++) {
+                if (a.options[i].selected == true) {
+                    dayToCompare[i] = sessionStorage.userLogged;
+
+                }
+
+            }
+            for (var i = 0; i < b.options.length; i++) {
+                if (b.options[i].selected == true) {
+                    horariosToCompare[i] = sessionStorage.userLogged;
+
+                }
+
+            }
+            
+            alert("Aula contratada com sucesso");
+            // console.log(dayToCompare);
+            // console.log(horariosToCompare);
+        }
+
+        agr();
+        document.getElementById("item01").className += " active";
+        // myFunction();
+    </script>
+
+
+
+</body>
+
+</html>

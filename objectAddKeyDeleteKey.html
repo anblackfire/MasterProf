@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exemplos de Objetos Orientados</title>
+</head>
+<body>
+
+    <label>Nome</label></br><input type="text" placeholder="Nome" id="userNome"></br></br>
+    <label>e-mail</label></br><input type="text" placeholder="e-mail" id="userEmail"></br></br>
+    <label>Senha</label></br><input type="text" placeholder="Senha" id="userSenha"></br></br>
+    <input type="submit" onclick="criarNovo()">
+
+    <script>
+        var users = {};
+        
+
+        function objEnviar () {
+            this.id = "id " + document.getElementById("userNome").value;
+            this.nome = document.getElementById("userNome").value;
+            this.email = document.getElementById("userEmail").value;
+            this.senha = document.getElementById("userSenha").value;   
+            }
+
+        function criarNovo(id, nome, email, senha) {
+            i = document.getElementById("userNome").value;
+            var a = new objEnviar (nome, email, senha);
+            users[i] = a;
+            }
+    </script>
+</body>
+</html>

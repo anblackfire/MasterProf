@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pagina de Buscas</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/js.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/css.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+
+    <!--  -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script> -->
+
+
+
+
+
+</head>
+
+<body>
+    <div class="row">
+        <div class="col">
+            <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav" id="navbarUL">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home
+
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row  justify-content-center">
+        <div class="col-10 text-center">
+            <h1 class="display-3">Cadastro de Aulas</h1>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-8 ">
+            <!-- <div class="input-group  mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                </div>
+                <input type="text" placeholder="ID do Dono" id="ownerID" class="form-control">
+            </div> -->
+            <div class="input-group  mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                </div>
+                <input type="text" placeholder="Título" id="courseTitle" class="form-control">
+            </div>
+            <div class="input-group  mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                </div>
+                <select class="form-control" id="courseTag" >
+                    <option value="">Selecione</option>
+                    <option value="musica">Música</option>
+                    <option value="idioma">Idioma</option>
+                    <option value="esportes">Esportes</option>
+                </select>
+            </div>
+            <div class="input-group  mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                </div>
+                <input type="text" placeholder="Custo/Aula" id="courseCost" class="form-control">
+            </div>
+
+            <div class="input-group  mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                </div>
+                <!-- <input type="text" placeholder="Descrição" id="courseDescrip" class="form-control"> -->
+                <textarea class="form-control" aria-label="With textarea" id="courseDescrip" placeholder="Descrição"></textarea>
+            </div>
+            <div class="input-group  mb-3 justify-content-center">
+                <div>
+                    <div class="input-group  mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                        </div>
+                        <select class="selectpicker" id="dias" multiple title="Dias da semana">
+
+                            <option value="1">DOM</option>
+                            <option value="1">SEG</option>
+                            <option value="1">TER</option>
+                            <option value="1">QUA</option>
+                            <option value="1">QUI</option>
+                            <option value="1">SEX</option>
+                            <option value="1">SAB</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div class="input-group  mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                        </div>
+                        <select class="selectpicker" id="horas" multiple title="Horários">
+
+                            <option value="1">08:00</option>
+                            <option value="1">09:00</option>
+                            <option value="1">10:00</option>
+                            <option value="1">11:00</option>
+                            <option value="1">12:00</option>
+                            <option value="1">13:00</option>
+                            <option value="1">14:00</option>
+                            <option value="1">15:00</option>
+                            <option value="1">16:00</option>
+                            <option value="1">17:00</option>
+                            <option value="1">18:00</option>
+                            <option value="1">19:00</option>
+                            <option value="1">20:00</option>
+
+                        </select>
+                    </div>
+                </div>
+
+              
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-8 text-center">
+            <input type="submit" id="btnSend" class="btn btn-dark btn-lg">
+        </div>
+    </div>
+
+    <script>
+
+      
+
+        function time() {
+            nCourseTags = nCourseTags;
+            var a = document.getElementById("horas");
+            var b = document.getElementById("dias");
+            dias = [];
+            horas = [];
+            for (var i = 0; i < b.options.length; i++) {
+                if (b.options[i].selected == true) {
+                    dias.push(b.options[i].value);
+
+                }
+                else {
+                    dias.push(0);
+                }
+            }
+            for (var i = 0; i < a.options.length; i++) {
+                if (a.options[i].selected == true) {
+                    horas.push(a.options[i].value);
+
+                }
+                else {
+                    horas.push(0);
+                }
+            }
+            console.log(horas);
+            console.log(dias);
+            createNewCourse(nCourseTags, dias, horas);
+        }
+
+        function tagGrabber() {
+            nCourseTags = document.getElementById("courseTag").value;
+            // nCourseTags = [];
+            // for (var i = 0; i < a.options.length; i++) {
+            //     if (a.options[i].selected == true) {
+            //         nCourseTags.push(a.options[i].value);
+
+            //     }
+            // }
+            time(nCourseTags, dias, horas);
+        }
+        //funcoes dos botoes
+        document.getElementById("btnSend").addEventListener("click", function () {
+            // verify();
+            //Retirar createNewProfile() e colocar verify no lugar
+            var dias = [];
+            var horas = [];
+            var nCourseTags = [];
+            tagGrabber(nCourseTags, dias, horas);
+
+        });
+
+        // var week = document.getElementsByClassName("weekday");
+        // console.log(week);
+
+        function createNewCourse() {
+
+            var A = Math.floor(Math.random() * 9999) + 1111;
+            var B = sessionStorage.userLogged;
+            var C = document.getElementById("courseTitle").value;
+            var D = document.getElementById("courseDescrip").value;
+            var E = document.getElementById("courseCost").value;
+            var F = nCourseTags;
+            var G = dias;
+            var H = horas;
+            var a = new Course(A, B, C, D, E, F,G,H);
+            courses.push(a);
+            alert("Aula cadastrada com sucesso");
+        }
+
+        agr();
+        document.getElementById("item05").className += " active";
+        // myFunction();
+    </script>
+
+
+</body>
+
+</html>
