@@ -15,7 +15,7 @@ function agr() {
     NEnavBar = document.createElement("a");
     NEnavBar.className = "navbar-brand";
     NEnavBar.innerHTML = "MasterProf";
-    NEnavBar.href = "login.html";
+    NEnavBar.href = "index.html";
     nav.insertAdjacentElement("afterbegin", NEnavBar);
     var NEnavBar = document.createElement("i");
     NEnavBar.className = "material-icons";
@@ -31,7 +31,7 @@ function agr() {
     NEnavBar = document.createElement("a");
     NEnavBar.className = "nav-link";
     NEnavBar.innerHTML = "Buscar Aulas";
-    NEnavBar.href = "InnerSearch.html";
+    NEnavBar.href = "innerSearch.html";
     nav.insertAdjacentElement("afterbegin", NEnavBar);
     if (sessionStorage.userLogged) {
         nav = document.getElementById("navbarUL");
