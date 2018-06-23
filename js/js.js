@@ -1,3 +1,58 @@
+const ManageCourses = (function () {
+    var local = localStorage.getItem("courses");
+    var coursesArray = [];
+    if (!local) {
+        // $.get("JSON/objects.json", function (ret) {
+
+        coursesArray = courses;
+        save();
+    }
+
+
+    function save() {
+        // localStorage.setItem("courses", JSON.stringify(courses));
+        localStorage.setItem("courses", coursesArray);
+    }
+
+    function getCourses(title) {
+        if (title)
+            return coursesArray.filter(c => c.title.toLowerCase() === title.toLowerCase());
+        return coursesArray;
+    }
+
+    function addCourse(course) {
+        coursesArray.push(course);
+        save();
+    }
+
+    function removeCourse(course) {
+        var c = coursesArray.indexOf(c => c.title === course.title);
+
+        if (c === -1) return;
+
+        coursesArray.splice(c);
+        save();
+    }
+
+    function updateCourse(id, course) {
+        var c = coursesArray.indexOf(c => c.id === id);
+
+        if (c === -1) return;
+
+        coursesArray[c] = course;
+        save();
+    }
+
+    return {
+        get: getCourses,
+        add: addCourse,
+        remove: removeCourse,
+        update: updateCourse
+    }
+})();
+
+ManageCourses.add(new Course(1, "matheus", "matheus", "matheus", 100, "matheus", 20, 40));
+
 
 if (!sessionStorage.userLogged) {
     sessionStorage.setItem("userLogged", "");
@@ -115,7 +170,7 @@ function agr() {
 var courses = [];
 var users = [];
 var userLogged = "";
-function Profile( title, descrip, mail, pic, login, pass, location) {
+function Profile(title, descrip, mail, pic, login, pass, location) {
     // this.id = id;
     // this.name = document.getElementById("userName").value;
     // this.descrip = document.getElementById("userDescrip").value;
@@ -147,13 +202,13 @@ arrayTeste1 = [1, 2, 0, 1, 0, 0, 1];
 arrayTeste2 = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1];
 
 
-users[0] = new Profile( "Lula Molusco", "Não dou aula para o Bob Esponja e o Patrick", "tentacuos@mail.com", "LM.jpg", "tentaculos", "1234", "Fenda do Bikini");
-users[1] = new Profile( "Pasquale", "Jamais trema na linguiça", "portuga@mail.com", "PASQ.jpg", "Pasquale", "1234", "Sampa");
-users[2] = new Profile( "aluno", "HerpDerp HurDUr", "mail@mail.com", "HERP.jpg", "aluno1", "1234", "Curitiba");
-users[3] = new Profile( "Dr. Rey", "Viva Bwrasil", "emagreça@mail.com", "REY.jpg", "emagreça", "1234", "Holywood");
-courses[0] = new Course("6666", users[0], "Aulas de Clarinete", "Aula completa de clarinete", "10", "musica",arrayTeste1, arrayTeste2)
-courses[1] = new Course("7777", users[1], "Aulas de Português", "Lorem ipsum dolor sit amet, sagittis risus et eu. Euismod suspendisse ipsum tellus integer, ut ac posuere at libero leo faucibus, suscipit id sit arcu, pede turpis lacus, diam vulputate at tortor. Vestibulum praesent urna molestie augue et, proin sociis. Sed a in ac arcu quam, praesent a massa bibendum nec bibendum ridiculus, dolore aenean sem ante justo est, wisi et nulla sit nec, justo libero porta massa sapien ut magna. Nisl dui dapibus sagittis vivamus quis magna, neque vel massa wisi sed pede sed, vehicula ut duis urna odio commodo magna, condimentum magnis vel vel. Non ut libero mauris elit, donec in in et, gravida mauris ante taciti a massa nam, molestie adipiscing praesent vulputate molestie nulla. Suspendisse vehicula elementum, magna nec malesuada sem a viverra ipsum. Vitae sed non parturient. Sed pellentesque wisi eum mi, nulla erat arcu rutrum erat a tincidunt. Pellentesque mi sapien est mauris urna donec. ", "20", "idioma",arrayTeste1, arrayTeste2)
-courses[2] = new Course("8888", users[0], "Aulas de Ciclismo", "descrição completa 3 ", "10", "esportes",arrayTeste1, arrayTeste2)
-courses[3] = new Course("9999", users[3], "Aulas de Inglês", "descrição completa 4 ", "10", "idioma",arrayTeste1, arrayTeste2)
+users[0] = new Profile("Lula Molusco", "Não dou aula para o Bob Esponja e o Patrick", "tentacuos@mail.com", "LM.jpg", "tentaculos", "1234", "Fenda do Bikini");
+users[1] = new Profile("Pasquale", "Jamais trema na linguiça", "portuga@mail.com", "PASQ.jpg", "Pasquale", "1234", "Sampa");
+users[2] = new Profile("aluno", "HerpDerp HurDUr", "mail@mail.com", "HERP.jpg", "aluno1", "1234", "Curitiba");
+users[3] = new Profile("Dr. Rey", "Viva Bwrasil", "emagreça@mail.com", "REY.jpg", "emagreça", "1234", "Holywood");
+courses[0] = new Course("6666", users[0], "Aulas de Clarinete", "Aula completa de clarinete", "10", "musica", arrayTeste1, arrayTeste2)
+courses[1] = new Course("7777", users[1], "Aulas de Português", "Lorem ipsum dolor sit amet, sagittis risus et eu. Euismod suspendisse ipsum tellus integer, ut ac posuere at libero leo faucibus, suscipit id sit arcu, pede turpis lacus, diam vulputate at tortor. Vestibulum praesent urna molestie augue et, proin sociis. Sed a in ac arcu quam, praesent a massa bibendum nec bibendum ridiculus, dolore aenean sem ante justo est, wisi et nulla sit nec, justo libero porta massa sapien ut magna. Nisl dui dapibus sagittis vivamus quis magna, neque vel massa wisi sed pede sed, vehicula ut duis urna odio commodo magna, condimentum magnis vel vel. Non ut libero mauris elit, donec in in et, gravida mauris ante taciti a massa nam, molestie adipiscing praesent vulputate molestie nulla. Suspendisse vehicula elementum, magna nec malesuada sem a viverra ipsum. Vitae sed non parturient. Sed pellentesque wisi eum mi, nulla erat arcu rutrum erat a tincidunt. Pellentesque mi sapien est mauris urna donec. ", "20", "idioma", arrayTeste1, arrayTeste2)
+courses[2] = new Course("8888", users[0], "Aulas de Ciclismo", "descrição completa 3 ", "10", "esportes", arrayTeste1, arrayTeste2)
+courses[3] = new Course("9999", users[3], "Aulas de Inglês", "descrição completa 4 ", "10", "idioma", arrayTeste1, arrayTeste2)
 
 // outras funçoes 
