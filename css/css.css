@@ -95,19 +95,47 @@
   .navbar{
     background-color: #3A5F6F;
   }
-
+  .home{
+    background-color: #3A5F6F;
+    
+  }
+  .home-text{
+      color: white;
+  }
  .material-icons {
     padding-right: 10px; 
     color: white;
   }
   .btn-dark{
     background-color:#3A5F6F;
-     border-color:#3A5F6F
-  }
+      border-color:#3A5F6F         
+        }
 
+  /* .btn-light{ */
+    /* background-color:#3A5F6F;     */
+     /* border-color:rgb(255, 255, 255) */
+  /* } */
 
 .selectpicker{
     border: 1px solid black;
 }
 
+.imgHome{
+    border-radius: 12px 12px 12px 12px;
+    -moz-border-radius: 12px 12px 12px 12px;
+    -webkit-border-radius: 12px 12px 12px 12px;
+}
 
+h3{
+
+    font-size: 25px;
+    font-weight: 400;
+    /* color: #007C91; */
+}
+p{
+
+    /* text-align: justify; */
+    font-size: 15px;
+    font-weight: 100;
+    /* color: #007C91; */
+}
