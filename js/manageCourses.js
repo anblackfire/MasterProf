@@ -1,7 +1,7 @@
 const ManageCourses = (function () {
     var local = localStorage.getItem("courses");
     var courses = [];
-    if (!local)
+    if (!localStorage.courses)
         $.get("JSON/objects.json", function (ret) {
             courses = ret;
             save();
