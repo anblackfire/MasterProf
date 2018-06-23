@@ -48,4 +48,4 @@ const ManageCourses = (function () {
     }
 })();
 
-ManageCourses.add(new Course(1, "matheus", "matheus", "matheus", 100, "matheus", 20, 40));
+// ManageCourses.add(new Course(1, "matheus", "matheus", "matheus", 100, "matheus", 20, 40));
