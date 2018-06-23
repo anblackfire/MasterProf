@@ -1,11 +1,12 @@
 const ManageCourses = (function () {
     var local = localStorage.getItem("courses");
     var courses = [];
-    if (!localStorage.courses)
-        $.get("JSON/objects.json", function (ret) {
-            courses = ret;
-            save();
-        });
+    // if (!localStorage.courses)
+
+    $.get("JSON/objects.json", function (ret) {
+        courses = ret;
+        save();
+    });
 
     function save() {
         localStorage.setItem("courses", JSON.stringify(courses));
@@ -24,7 +25,7 @@ const ManageCourses = (function () {
 
     function removeCourse(course) {
         var c = courses.indexOf(c => c.title === course.title);
-        
+
         if (c === -1) return;
 
         courses.splice(c);
@@ -33,7 +34,7 @@ const ManageCourses = (function () {
 
     function updateCourse(id, course) {
         var c = courses.indexOf(c => c.id === id);
-        
+
         if (c === -1) return;
 
         courses[c] = course;
