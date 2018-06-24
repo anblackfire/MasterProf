@@ -127,7 +127,7 @@
 
 
 
-        function SearchBuildInformations(id, users) {
+        function SearchBuildInformations(id, users, courses) {
             for (let i = 0; i < users.length; i++) {
                 if (i==0) {
                     i="0";
@@ -153,7 +153,7 @@
 
                 }
             }
-            SearchBuildTable(id);
+            SearchBuildTable(id, users, courses);
         }
 
         function clearTable() {
@@ -161,7 +161,7 @@
             table.innerHTML = "";
         }
 
-        function SearchBuildTable(id) {
+        function SearchBuildTable(id, users, courses) {
             clearTable();
             var table = document.getElementById("tableCourses");
             var conteudo = "";
@@ -289,7 +289,7 @@
             createInputs();
         }
 
-        SearchBuildInformations(id);
+        SearchBuildInformations(id, users, courses);
         agr();
         // myFunction();
         if (sessionStorage.userLogged) {
