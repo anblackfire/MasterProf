@@ -140,8 +140,11 @@
         var F = document.getElementById("userPass").value;
         var G = document.getElementById("userLocation").value;
 
-        ManageProfiles.add(new Profile(A, B, C, D, E, F, G));
-        alert("Usuário cadastrado com sucesso");
+        if (E != "") {
+            ManageProfiles.add(new Profile(A, B, C, D, E, F, G));
+            alert("Usuário cadastrado com sucesso");
+        }
+
     }
 
     function LoginCheck() {
@@ -158,7 +161,7 @@
             const element = users[i];
             if (element.login == loginTry) {
                 alert("Este Login já está em uso, por favor escolha outro e tente novamente");
-                // loginTry.value = "";
+                loginTry.value = "";                
             }
         }
         return loginTry;
