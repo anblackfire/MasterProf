@@ -67,7 +67,7 @@
                         <span class="input-group-text" id="inputGroup-sizing-default"></span>
                     </div>
 
-                    <input type="text" placeholder="Nome" id="userName" class="form-control" pattern="^[A-Za-z]+(\s[A-Za-z]+){0,2}$" required="required">
+                    <input type="text" placeholder="Nome" id="userName" class="form-control" pattern="^[A-Za-z]+(\s[A-Za-z]+){0,2}$" required>
 
                 </div>
                 <div class="input-group  mb-3">
@@ -138,7 +138,7 @@
         var F = document.getElementById("userPass").value;
         var G = document.getElementById("userLocation").value;
 
-        ManageProfiles.add(new Course(A, B, C, D, E, F, G));
+        ManageProfiles.add(new Profile(A, B, C, D, E, F, G));
         alert("Usuário cadastrado com sucesso");
     }
 
