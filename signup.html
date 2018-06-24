@@ -82,7 +82,7 @@
                         <span class="input-group-text" id="inputGroup-sizing-default"></span>
                     </div>
                     <input type="text" placeholder="Login" id="userLogin" class="form-control" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required
-                        title="Login com 2 a 20 caracteres">
+                        title="Login com 2 a 20 caracteres e sem espaços">
                 </div>
                 <div class="input-group  mb-3">
                     <div class="input-group-prepend">
@@ -157,6 +157,7 @@
             }
             const element = users[i];
             if (element.login == loginTry) {
+                alert("Este Login já está em uso, por favor escolha outro e tente novamente");
                 loginTry.value = "";
             }
         }
