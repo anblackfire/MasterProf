@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cadastro</title>
-   
-    <script src="js/jquery-3.3.1.min.js"></script>   
+
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -19,11 +19,11 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
-        <script type="text/javascript" src="js/manageProfiles.js"></script>
+    <script type="text/javascript" src="js/manageProfiles.js"></script>
     <script type="text/javascript" src="js/manageCourses.js"></script>
     <script type="text/javascript" src="js/js.js"></script>
-   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <link rel="stylesheet" href="css/css.css">
 
@@ -92,6 +92,12 @@
                 </div>
                 <input type="text" placeholder="Descrição" id="userDescrip" class="form-control">
             </div>
+            <div class="input-group  mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                </div>
+                <input type="text" placeholder="Localização" id="userLocation" class="form-control">
+            </div>
         </div>
     </div>
     <div class="row justify-content-center">
@@ -106,6 +112,7 @@
 
 <script>
 
+    var users = ManageProfiles.get();
     //funcoes dos botoes
     document.getElementById("btnSend").addEventListener("click", function () {
         // verify();
@@ -116,27 +123,37 @@
         location.href = "createCourse.html";
     });
 
-    // if (sessionStorage.userLogged) {
-
-    // }
-
-    //Terminar a verificação dos campos, nenhum deles pode ser nulos para que o perfil novo sera criado
-    // function verify() {
-    //     var a;
-    //     if (a != null) {
-    //         createNewProfile();
-    //     }
-    //     else {
-    //         alert("Preencha todos os campos");
-    //     }
-
-    // }
 
     function createNewProfile() {
-        var b = Math.floor(Math.random() * 9999) + 1111;
-        var a = new Profile(b);
-        users.push(a);
+        var A = getElementById("userName").value;
+        var B = getElementById("userDescrip").value;
+        var C = getElementById("userMail").value;
+        var D = "dog.jpg";
+        var E = LoginCheck();
+        var F = getElementById("userPass").value;
+        var G = getElementById("userLocation").value;
+
+        ManageProfile.add(new Course(A, B, C, D, E, F, G));
         alert("Usuário cadastrado com sucesso");
+    }
+
+    function LoginCheck() {
+        var loginTry = document.getElementById("userLogin").value;
+        LogVerify(loginTry);
+        return loginTry;
+    }
+
+    function LogVerify(loginTry) {
+        for (let i = 0; i < users.length; i++) {
+            if (i == 0) {
+                i = "0";
+            }
+            const element = users[i];
+            if (element.login == loginTry) {
+                LoginCheck();
+            }
+        }
+        return loginTry;
     }
     agr();
     document.getElementById("item03").className += " active";
