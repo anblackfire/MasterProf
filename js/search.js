@@ -66,7 +66,7 @@ function FilterArray(x, filter) {
 
             var login = data.owner;
             var owner = ManageProfiles.get(login);                  
-            hasFilter |= owner[0].title.toUpperCase().indexOf(filter) > -1;
+            // hasFilter |= owner[0].title.toUpperCase().indexOf(filter) > -1;
             hasFilter |= owner[0].location.toUpperCase().indexOf(filter) > -1;
 
 
