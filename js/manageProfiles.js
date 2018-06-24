@@ -1,4 +1,4 @@
-const ManageProfile = (function () {
+const ManageProfiles = (function () {
     var localP = localStorage.getItem("profiles");
     var profiles = [];
     if (!localP) {

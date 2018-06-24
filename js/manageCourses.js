@@ -3,26 +3,32 @@ const ManageCourses = (function () {
     var courses = [];
     if (!local) {
         $.get("JSON/courses.json", function (ret) {
-            courses = ret;            
+            courses = ret;
             // localStorage.setItem("courses", JSON.stringify(courses));
             save();
         });
     }
-    else {        
+    else {
         courses = JSON.parse(local);
         // courses = local;
         save();
     }
 
     function save() {
-        
+
         localStorage.setItem("courses", JSON.stringify(courses));
         // localStorage.setItem("courses", courses);
     }
 
-    function getCourses(title) {
+    function getCourses(title, tag) {
+        if (title && tag) {
+            var tagFilter = courses.filter(c => c.tag.toLowerCase() === tag.toLowerCase());
+            return tagFilter.filter(c => c.title.toLowerCase() === title.toLowerCase());
+        }
         if (title)
             return courses.filter(c => c.title.toLowerCase() === title.toLowerCase());
+        if (tag)
+            return courses.filter(c => c.tag.toLowerCase() === tag.toLowerCase());
         return courses;
     }
 
