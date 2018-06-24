@@ -1,0 +1,43 @@
+[
+    {
+        "title": "Lula Molusco",
+        "descrip": "Eu odeio o Bob Esponja e o Patrick",
+        "mail": "tentaculos@mail.com",
+        "pic": "LM.jpg",
+        "login": "tentaculos",
+        "pass": "1234",
+        "location": "Fenda do bikini"
+        
+    },
+    {
+        "title": "Pasquale",
+        "descrip": "Jamais trema na linguiça",
+        "mail": "postuga@mail.com",
+        "pic": "PASQ.jpg",
+        "login": "pasquale",
+        "pass": "1234",
+        "location": "Tv Cultura"
+        
+    },
+    {
+        "title": "Herp Derp",
+        "descrip": "Hur Dur",
+        "mail": "email@mail.com",
+        "pic": "HERP.jpg",
+        "login": "aluno",
+        "pass": "1234",
+        "location": "Curitiba"
+        
+    },
+    {
+        "title": "Dr. Rey",
+        "descrip": "Viva Bwrasil",
+        "mail": "emagreca@mail.com",
+        "pic": "REY.jpg",
+        "login": "emagreca",
+        "pass": "1234",
+        "location": "Holywood"
+        
+    }
+   
+]
