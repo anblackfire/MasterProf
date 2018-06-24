@@ -129,8 +129,8 @@
 
         function SearchBuildInformations(id, users, courses) {
             for (let i = 0; i < users.length; i++) {
-                if (i==0) {
-                    i="0";
+                if (i == 0) {
+                    i = "0";
                 }
                 const element = users[i];
                 if (id == element.login) {
@@ -260,26 +260,25 @@
         }
 
         function sendEditProf(obj) {
-            for (let i = 0; i < users.length; i++) {
-                const element = users[i];
-                if (sessionStorage.userLogged == element.login) {
-                    for (key in obj) {
-                        var str = key;
-                        var now = document.getElementById(str);
 
-                        if (now) {
-                            var nowID = now.id;
-                            if (now.value) {
+            var login = sessionStorage.userLogged;
+            var profile = ManageProfiles.get(login);            
 
-                                element[nowID] = document.getElementById(nowID).value;
+            for (key in obj) {
+                var str = key;
+                var now = document.getElementById(str);
+                if (now) {
+                    var nowID = now.id;
+                    if (now.value) {
+                        profile["0"][nowID] = document.getElementById(nowID).value;
 
 
-                            }
-                        }
                     }
-
                 }
             }
+
+            ManageProfiles.update(login, profile);
+           
             alert("Peril alterado com sucesso");
             location.href = "userProfile.html";
         }

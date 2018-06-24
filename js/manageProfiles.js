@@ -40,7 +40,7 @@ const ManageProfiles = (function () {
         save();
     }
 
-    function updateProfile(id, profile) {
+    function updateProfile(login, profile) {
         var c = profiles.indexOf(c => c.login === login);
 
         if (c === -1) return;
