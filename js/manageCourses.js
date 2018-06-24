@@ -13,7 +13,8 @@ const ManageCourses = (function () {
     }
 
     function save() {
-        localStorage.setItem("courses", JSON.stringify(courses));
+        // localStorage.setItem("courses", JSON.stringify(courses));
+        localStorage.setItem("courses", courses);
     }
 
     function getCourses(title) {
