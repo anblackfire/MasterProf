@@ -25,8 +25,8 @@
     <script type="text/javascript" src="js/manageCourses.js"></script>
     <script type="text/javascript" src="js/js.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> -->
     <link rel="stylesheet" href="css/css.css">
 
 
@@ -63,15 +63,9 @@
             <h1 class="display-3">Cadastro de Aulas</h1>
         </div>
     </div>
-    <form onsubmit= tagGrabber(nCourseTags,dias,horas);>
+    <form onsubmit= tagGrabber(nCourseTags);>
         <div class="row justify-content-center">
-            <div class="col-8 ">
-                <!-- <div class="input-group  mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
-                </div>
-                <input type="text" placeholder="ID do Dono" id="ownerID" class="form-control">
-            </div> -->
+            <div class="col-8 ">               
                 <div class="input-group  mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default"></span>
@@ -99,11 +93,10 @@
                 <div class="input-group  mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default"></span>
-                    </div>
-                    <!-- <input type="text" placeholder="Descrição" id="courseDescrip" class="form-control"> -->
+                    </div>                    
                     <textarea class="form-control" aria-label="With textarea" id="courseDescrip" placeholder="Descrição" required title="Informe qualquer coisa"></textarea>
                 </div>
-                <div class="input-group  mb-3 justify-content-center">
+                <!-- <div class="input-group  mb-3 justify-content-center">
                     <div>
                         <div class="input-group  mb-3">
                             <div class="input-group-prepend">
@@ -148,7 +141,7 @@
                     </div>
 
 
-                </div>
+                </div> -->
 
             </div>
         </div>
@@ -165,29 +158,29 @@
         var courses = ManageCourses.get();
 
         function time() {
-            nCourseTags = nCourseTags;
-            var a = document.getElementById("horas");
-            var b = document.getElementById("dias");
-            dias = [];
-            horas = [];
-            for (var i = 0; i < b.options.length; i++) {
-                if (b.options[i].selected == true) {
-                    dias.push(b.options[i].value);
+            // nCourseTags = nCourseTags;
+            // var a = document.getElementById("horas");
+            // var b = document.getElementById("dias");
+            // dias = [];
+            // horas = [];
+            // for (var i = 0; i < b.options.length; i++) {
+            //     if (b.options[i].selected == true) {
+            //         dias.push(b.options[i].value);
 
-                }
-                else {
-                    dias.push(0);
-                }
-            }
-            for (var i = 0; i < a.options.length; i++) {
-                if (a.options[i].selected == true) {
-                    horas.push(a.options[i].value);
+            //     }
+            //     else {
+            //         dias.push(0);
+            //     }
+            // }
+            // for (var i = 0; i < a.options.length; i++) {
+            //     if (a.options[i].selected == true) {
+            //         horas.push(a.options[i].value);
 
-                }
-                else {
-                    horas.push(0);
-                }
-            }
+            //     }
+            //     else {
+            //         horas.push(0);
+            //     }
+            // }
             // console.log(horas);
             // console.log(dias);
             createNewCourse(nCourseTags, dias, horas);

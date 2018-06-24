@@ -54,22 +54,18 @@ function FilterSort(x, filter, tags) {
 
 //Filtrar por texto e entregar outro array
 function FilterArray(x, filter) {
-    
+
     for (let i = 0; i < x.length; i++) {
         const data = x[i];
 
         var arrayFiltrado = [];
         var hasFilter = data.title.toUpperCase().indexOf(filter) > -1;
-        // console.log(filter);
         // hasFilter sera true se encontrar data.title.toUpperCase().indexOf(filter) > -1;
         // opção extra para o tipo de filtro
         if (data.id) {
 
             var login = data.owner;
-            // console.log(login);
-            var owner = ManageProfiles.get(login);       
-            // console.log(owner);           
-            // console.log(owner["0"].login); 
+            var owner = ManageProfiles.get(login);
             hasFilter |= owner["0"].title.toUpperCase().indexOf(filter) > -1;
             hasFilter |= owner["0"].location.toUpperCase().indexOf(filter) > -1;
 
@@ -90,7 +86,7 @@ function FilterArray(x, filter) {
 }
 // criar elementos necessários para mostrar informações e colocar na tabela posteriormente
 function CreateElements(x, arrayFiltrado, owner) {
-    // var data;
+
     // para cada indice que veio do array determinado pela busca
     for (let i = 0; i < arrayFiltrado.length; i++) {
         var obj = new LetterOBJ;
@@ -149,11 +145,6 @@ function BuildTableProfiles(obj) {
         sessionStorage.IDSender = obj.currentID;
         location.href = "userProfile.html";
     };
-    // document.getElementById(divRow.id).addEventListener("click", function () {
-    //     view();
-    // });
-
-    // location.href = "userProfile.html";
     divImg.className = "col-md-auto tdimg";
     divTxt.className = "col-10 col-lg-8";
     divCst.className = "col-sm ";
@@ -185,15 +176,12 @@ function BuildTableCourses(obj) {
 
     divRow.className = "row justify-content-md-center align-items-center block link";
     divRow.id = obj.currentID;
-    // document.getElementById(divRow.id).addEventListener("click", function () {
-    //     view();
-    // });
     divRow.onclick = function () {
         sessionStorage.courseSender = obj.currentID;
         location.href = "coursesProfile.html";
     };
 
-    // location.href = "courseProfile.html";
+
     divImg.className = "col-md-auto tdimg";
     divTxt.className = "col-10 col-lg-8";
     divCst.className = "col-sm";
@@ -206,7 +194,7 @@ function BuildTableCourses(obj) {
 
     divTxt.insertAdjacentElement("afterbegin", obj.descrip);
     divTxt.insertAdjacentElement("afterbegin", document.createElement("br"));
-    // divTxt.insertAdjacentElement("afterbegin", document.createElement("br"));
+
     divTxt.insertAdjacentElement("afterbegin", obj.ownerTitle);
     divTxt.insertAdjacentElement("afterbegin", document.createElement("br"));
     divTxt.insertAdjacentElement("afterbegin", obj.courseTitle);

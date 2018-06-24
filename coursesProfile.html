@@ -24,11 +24,9 @@
     <script type="text/javascript" src="js/manageCourses.js"></script>
     <script type="text/javascript" src="js/js.js"></script>
 
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> -->
-   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.js"></script>
+      
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.js"></script> -->
 
     <link rel="stylesheet" href="css/css.css">
 
@@ -66,14 +64,6 @@
     </div>
     <br>
 
-    <!-- <div class="row justify-content-center">
-        <div class="col-4,5">
-            <input type="text" placeholder="Informe o ID do curso" id="CPID">
-            <button type="button" id="CPbtnSendID">Pesquisar ID do curso</button>
-        </div>
-    </div>
-    </br> -->
-
     <div class="row justify-content-center ">
         <div class="col-10 block">
             <div class="row justify-content-center ">
@@ -94,9 +84,10 @@
                     <label id="CPShowCost" class="lead  text-center profile-text cost">mostrar custo do curso</label>
                     </br>
                 </div>
-
             </div>
-            <div class="input-group  mb-3 justify-content-center">
+
+            <!-- Parte comentada até 2º ordem -->
+            <!-- <div class="input-group  mb-3 justify-content-center">
                 <div>
                     <div class="input-group  mb-3">
                         <div class="input-group-prepend">
@@ -139,9 +130,8 @@
                         </select>
                     </div>
                 </div>
+            </div> -->
 
-
-            </div>
             <div class="row justify-content-center">
                 <div class="col-8 text-center ">
                     <button type="button" id="btnContratar" class="btn btn-dark btn-lg">Contratar</button>
@@ -152,19 +142,14 @@
 
     <script>
 
-        var dayToCompare = "";
-        var horariosToCompare = "";
+        // var dayToCompare = "";
+        // var horariosToCompare = "";
         var courses = ManageCourses.get();
-
-
         var id = sessionStorage.courseSender;
-        SearchBuild(id, courses)
-        // sessionStorage.IDSender = "";
+
+        SearchBuild(id, courses)       
 
         function SearchBuild(id, courses) {
-
-
-
             for (let i = 0; i < courses.length; i++) {
                 if (i == 0) {
                     i = "0";
@@ -188,8 +173,8 @@
                     document.getElementById("CPShowOwner").innerHTML = owner["0"].title;
                     document.getElementById("CPShowCost").innerHTML = "R$" + element.cost;
                     document.getElementById("CPShowTag").innerHTML = element.tag;
-                    dayToCompare = element.dias;
-                    horariosToCompare = element.horas;
+                    // dayToCompare = element.dias;
+                    // horariosToCompare = element.horas;
 
                     break;
                 }
@@ -202,72 +187,71 @@
                     document.getElementById("CPShowTag").innerHTML = "mostrar as Tags do curso";
                 }
             }
-            Schudule(dayToCompare, horariosToCompare);
+            // Schudule(dayToCompare, horariosToCompare);
         }
 
-        function Schudule(dayToCompare, horariosToCompare) {
+        // function Schudule(dayToCompare, horariosToCompare) {
 
-            var day = document.getElementById("dias");
-            var horarios = document.getElementById("horas");
+        //     var day = document.getElementById("dias");
+        //     var horarios = document.getElementById("horas");
 
-            for (var i = 0; i < day.options.length; i++) {
-                if (dayToCompare[i] != 0) {
-                    day.options[i].disabled = true;
-
-
-                }
-                else {
+        //     for (var i = 0; i < day.options.length; i++) {
+        //         if (dayToCompare[i] != 0) {
+        //             day.options[i].disabled = true;
 
 
-                }
+        //         }
+        //         else {
 
-            }
 
-            for (var i = 0; i < horarios.options.length; i++) {
-                if (horariosToCompare[i] != 0) {
-                    horarios.options[i].disabled = true;
+        //         }
 
-                }
+        //     }
 
-            }
+        //     for (var i = 0; i < horarios.options.length; i++) {
+        //         if (horariosToCompare[i] != 0) {
+        //             horarios.options[i].disabled = true;
 
-            // console.log(day);
-            // console.log(horariosToCompare);
-        }
+        //         }
+
+        //     }
+
+        //     // console.log(day);
+        //     // console.log(horariosToCompare);
+        // }
 
         document.getElementById("btnContratar").addEventListener("click", function () {
-            Contract();
-            // SearchBuild(id);            
+            Contract();                       
         });
 
         function Contract() {
-            var a = document.getElementById("dias");
-            var b = document.getElementById("horas");
-            // dias = [];
-            // horas = [];
-            for (var i = 0; i < a.options.length; i++) {
-                if (a.options[i].selected == true) {
-                    dayToCompare[i] = sessionStorage.userLogged;
+            
+            // var a = document.getElementById("dias");
+            // var b = document.getElementById("horas");
+            // // dias = [];
+            // // horas = [];
+            // for (var i = 0; i < a.options.length; i++) {
+            //     if (a.options[i].selected == true) {
+            //         dayToCompare[i] = sessionStorage.userLogged;
 
-                }
+            //     }
 
-            }
-            for (var i = 0; i < b.options.length; i++) {
-                if (b.options[i].selected == true) {
-                    horariosToCompare[i] = sessionStorage.userLogged;
+            // }
+            // for (var i = 0; i < b.options.length; i++) {
+            //     if (b.options[i].selected == true) {
+            //         horariosToCompare[i] = sessionStorage.userLogged;
 
-                }
+            //     }
 
-            }
+            // }
 
             alert("Aula contratada com sucesso");
-            // console.log(dayToCompare);
-            // console.log(horariosToCompare);
+           
         }
 
         agr();
         document.getElementById("item01").className += " active";
-        // myFunction();
+        
     </script>
 
 

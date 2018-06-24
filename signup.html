@@ -23,8 +23,8 @@
     <script type="text/javascript" src="js/manageCourses.js"></script>
     <script type="text/javascript" src="js/js.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> -->
     <link rel="stylesheet" href="css/css.css">
 
 </head>
@@ -118,12 +118,7 @@
 <script>
 
     var users = ManageProfiles.get();
-    //funcoes dos botoes
-    document.getElementById("btnSend").addEventListener("click", function () {
-        // verify();
-        //Retirar createNewProfile() e colocar verify no lugar
-        // createNewProfile();
-    });
+    //funcoes dos botoes    
 
     document.getElementById("btnPageLogin").addEventListener("click", function () {
         location.href = "login.html";
@@ -142,15 +137,13 @@
 
         if (E == " ") {
             alert("Este Login já está em uso, por favor escolha outro e tente novamente");
-            // alert("Este Login já está em uso, por favor escolha outro e tente novamente");
+
         }
         else {
             ManageProfiles.add(new Profile(A, B, C, D, E, F, G));
             alert("Usuário cadastrado com sucesso");
         }
-        // else {
-        //     location.reload();
-        // }
+
 
     }
 
@@ -159,7 +152,7 @@
         var confirm = ManageProfiles.get(login);
         if (confirm.length > 0) {
             document.getElementById("userLogin").innerHTML = "";
-            document.getElementById("userLogin").value = "";           
+            document.getElementById("userLogin").value = "";
             return " ";
         } else {
             return login;
@@ -167,25 +160,9 @@
 
     }
 
-    // function LogVerify(loginTry) {
-    //     for (let i = 0; i < users.length; i++) {
-    //         if (i == 0) {
-    //             i = "0";
-    //         }
-    //         const element = users[i];
-    //         if (element.login == document.getElementById("userLogin").value) {
-
-    //             document.getElementById("userLogin").innerHTML = "";
-    //             document.getElementById("userLogin").value = "";
-    //             loginTry = "error";
-    //             return;
-    //         }
-    //     }
-    //     return;
-    // }
     agr();
     document.getElementById("item03").className += " active";
-    // myFunction();
+
 </script>
 </body>
 

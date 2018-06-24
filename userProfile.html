@@ -23,8 +23,8 @@
     <script type="text/javascript" src="js/manageCourses.js"></script>
     <script type="text/javascript" src="js/js.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> -->
     <link rel="stylesheet" href="css/css.css">
 
 </head>
@@ -94,11 +94,7 @@
     </div>
     </div>
 
-    <script>
-        // document.getElementById("UPbtnSendID").addEventListener("click", function () {
-        //     var id = document.getElementById("UPID").value;
-        //     SearchBuildInformations(id)
-        // });
+    <script>        
 
         var id = "";
         var users = ManageProfiles.get();
@@ -106,20 +102,20 @@
 
         if (sessionStorage.IDSender) {
             id = sessionStorage.IDSender;
-            // sessionStorage.IDSender = "";
+           
 
         } else {
             id = sessionStorage.getItem("userLogged");
             var now = document.getElementById("h1");
-            var nowbtn = document.createElement("button");
-            nowbtn.type = "button";
-            nowbtn.className = "btn btn-dark btn-lg";
-            nowbtn.innerHTML = "Editar";
-            nowbtn.onclick = function () {
-                editProfile();
-            }
+            // var nowbtn = document.createElement("button");
+            // nowbtn.type = "button";
+            // nowbtn.className = "btn btn-dark btn-lg";
+            // nowbtn.innerHTML = "Editar";
+            // nowbtn.onclick = function () {
+            //     editProfile();
+            // }
             now.innerHTML = "Seu Perfil";
-            now.insertAdjacentElement("afterend", nowbtn);
+            // now.insertAdjacentElement("afterend", nowbtn);
             now.insertAdjacentElement("afterend", document.createElement("br"));
 
 
@@ -199,98 +195,98 @@
             prof.innerHTML = "";
         }
 
-        function objEditProf(title, mail, senha, descrip, save, div) {
-            this.title = title;
-            this.mail = mail;
-            this.senha = senha;
-            this.descrip = descrip;
-            this.save = save;
-            this.div = div;
-        }
+        // function objEditProf(title, mail, senha, descrip, save, div) {
+        //     this.title = title;
+        //     this.mail = mail;
+        //     this.senha = senha;
+        //     this.descrip = descrip;
+        //     this.save = save;
+        //     this.div = div;
+        // }
 
-        function createInputs() {
-            var obj = new objEditProf;
-            var classe = "form-control";
-            obj.title = document.createElement("input");
-            obj.title.id = "title";
-            obj.title.type = "text";
-            obj.title.placeholder = document.getElementById("UPShowName").innerHTML;
-            obj.title.className = classe;
-            obj.mail = document.createElement("input");
-            obj.mail.id = "mail";
-            obj.mail.type = "text";
-            obj.mail.placeholder = document.getElementById("UPShowMail").innerHTML;
-            obj.mail.className = classe;
-            obj.pass = document.createElement("input");
-            obj.pass.id = "pass";
-            obj.pass.type = "text";
-            obj.pass.placeholder = "Insira uma nova senha";
-            obj.pass.className = classe;
-            obj.descrip = document.createElement("textarea");
-            obj.descrip.id = "descrip";
-            obj.descrip.type = "text";
-            obj.descrip.placeholder = document.getElementById("UPShowDescrip").innerHTML;
-            obj.descrip.className = classe;
-            obj.save = document.createElement("button");
-            obj.save.type = "button";
-            obj.save.className = "btn btn-dark btn-lg";
-            obj.save.innerHTML = "Salvar";
-            obj.save.onclick = function () {
-                sendEditProf(obj);
-            }
-            obj.div = document.createElement("div");
-            obj.div.className = "col text-center";
-            editBuilder(obj);
-        }
+        // function createInputs() {
+        //     var obj = new objEditProf;
+        //     var classe = "form-control";
+        //     obj.title = document.createElement("input");
+        //     obj.title.id = "title";
+        //     obj.title.type = "text";
+        //     obj.title.placeholder = document.getElementById("UPShowName").innerHTML;
+        //     obj.title.className = classe;
+        //     obj.mail = document.createElement("input");
+        //     obj.mail.id = "mail";
+        //     obj.mail.type = "text";
+        //     obj.mail.placeholder = document.getElementById("UPShowMail").innerHTML;
+        //     obj.mail.className = classe;
+        //     obj.pass = document.createElement("input");
+        //     obj.pass.id = "pass";
+        //     obj.pass.type = "text";
+        //     obj.pass.placeholder = "Insira uma nova senha";
+        //     obj.pass.className = classe;
+        //     obj.descrip = document.createElement("textarea");
+        //     obj.descrip.id = "descrip";
+        //     obj.descrip.type = "text";
+        //     obj.descrip.placeholder = document.getElementById("UPShowDescrip").innerHTML;
+        //     obj.descrip.className = classe;
+        //     obj.save = document.createElement("button");
+        //     obj.save.type = "button";
+        //     obj.save.className = "btn btn-dark btn-lg";
+        //     obj.save.innerHTML = "Salvar";
+        //     obj.save.onclick = function () {
+        //         sendEditProf(obj);
+        //     }
+        //     obj.div = document.createElement("div");
+        //     obj.div.className = "col text-center";
+        //     editBuilder(obj);
+        // }
 
-        function editBuilder(obj) {
-            clear();
-            var prof = document.getElementById("editHERE");
-            obj.div.insertAdjacentElement("afterbegin", obj.save);
+        // function editBuilder(obj) {
+        //     clear();
+        //     var prof = document.getElementById("editHERE");
+        //     obj.div.insertAdjacentElement("afterbegin", obj.save);
 
-            prof.insertAdjacentElement("afterbegin", obj.div);
-            prof.insertAdjacentElement("afterbegin", document.createElement("br"));
-            prof.insertAdjacentElement("afterbegin", obj.descrip);
-            prof.insertAdjacentElement("afterbegin", document.createElement("br"));
-            prof.insertAdjacentElement("afterbegin", obj.pass);
-            prof.insertAdjacentElement("afterbegin", document.createElement("br"));
-            prof.insertAdjacentElement("afterbegin", obj.mail);
-            prof.insertAdjacentElement("afterbegin", document.createElement("br"));
-            prof.insertAdjacentElement("afterbegin", obj.title);
-        }
+        //     prof.insertAdjacentElement("afterbegin", obj.div);
+        //     prof.insertAdjacentElement("afterbegin", document.createElement("br"));
+        //     prof.insertAdjacentElement("afterbegin", obj.descrip);
+        //     prof.insertAdjacentElement("afterbegin", document.createElement("br"));
+        //     prof.insertAdjacentElement("afterbegin", obj.pass);
+        //     prof.insertAdjacentElement("afterbegin", document.createElement("br"));
+        //     prof.insertAdjacentElement("afterbegin", obj.mail);
+        //     prof.insertAdjacentElement("afterbegin", document.createElement("br"));
+        //     prof.insertAdjacentElement("afterbegin", obj.title);
+        // }
 
-        function sendEditProf(obj) {
+        // function sendEditProf(obj) {
 
-            var login = sessionStorage.userLogged;
-            var profile = ManageProfiles.get(login);            
+        //     var login = sessionStorage.userLogged;
+        //     var profile = ManageProfiles.get(login);            
 
-            for (key in obj) {
-                var str = key;
-                var now = document.getElementById(str);
-                if (now) {
-                    var nowID = now.id;
-                    if (now.value) {
-                        profile["0"][nowID] = document.getElementById(nowID).value;
+        //     for (key in obj) {
+        //         var str = key;
+        //         var now = document.getElementById(str);
+        //         if (now) {
+        //             var nowID = now.id;
+        //             if (now.value) {
+        //                 profile["0"][nowID] = document.getElementById(nowID).value;
 
 
-                    }
-                }
-            }
+        //             }
+        //         }
+        //     }
 
-            ManageProfiles.update(login, profile);
+        //     ManageProfiles.update(login, profile);
            
-            alert("Peril alterado com sucesso");
-            location.href = "userProfile.html";
-        }
+        //     alert("Peril alterado com sucesso");
+        //     location.href = "userProfile.html";
+        // }
 
-        function editProfile() {
+        // function editProfile() {
 
-            createInputs();
-        }
+        //     createInputs();
+        // }
 
         SearchBuildInformations(id, users, courses);
         agr();
-        // myFunction();
+        
         if (sessionStorage.userLogged) {
             document.getElementById("item04").className += " active";
         }

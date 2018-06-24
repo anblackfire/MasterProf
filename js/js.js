@@ -133,7 +133,7 @@ function Profile(title, descrip, mail, pic, login, pass, location) {
     this.pass = pass;
     this.location = location;
 }
-function Course(id, owner, title, descrip, cost, tag, dias, horas) {
+function Course(id, owner, title, descrip, cost, tag, dias, horas, contract) {
     this.id = id;
     this.owner = owner;
     this.title = title;
@@ -142,6 +142,7 @@ function Course(id, owner, title, descrip, cost, tag, dias, horas) {
     this.tag = tag;
     this.dias = dias;
     this.horas = horas;
+    this.contract = contract;
     // this.time = time;
 }
 // arrayTeste1 = [1, 2, 0, 1, 0, 0, 1];
