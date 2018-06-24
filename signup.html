@@ -66,37 +66,37 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default"></span>
                 </div>
-                <input type="text" placeholder="Nome" id="userName" class="form-control">
+                <input type="text" placeholder="Nome" id="userName" class="form-control" pattern="^[A-Za-z]+(\s[A-Za-z]+){0,2}$" required>
             </div>
             <div class="input-group  mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default"></span>
                 </div>
-                <input type="text" placeholder="E-mail" id="userMail" class="form-control">
+                <input type="email" placeholder="E-mail" id="userMail" class="form-control" required>
             </div>
             <div class="input-group  mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default"></span>
                 </div>
-                <input type="text" placeholder="Login" id="userLogin" class="form-control">
+                <input type="text" placeholder="Login" id="userLogin" class="form-control" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
             </div>
             <div class="input-group  mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default"></span>
                 </div>
-                <input type="text" placeholder="Senha" id="userPass" class="form-control">
+                <input type="text" placeholder="Senha" id="userPass" class="form-control" pattern="[a-zA-Z0-9]+" required>
             </div>
             <div class="input-group  mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default"></span>
                 </div>
-                <input type="text" placeholder="Descrição" id="userDescrip" class="form-control">
+                <input type="text" placeholder="Descrição" id="userDescrip" class="form-control" required>
             </div>
             <div class="input-group  mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default"></span>
                 </div>
-                <input type="text" placeholder="Localização" id="userLocation" class="form-control">
+                <input type="text" placeholder="Localização" id="userLocation" class="form-control" pattern="^[A-Za-z]+(\s[A-Za-z]+){0,2}$" required>
             </div>
         </div>
     </div>
@@ -151,7 +151,7 @@
             }
             const element = users[i];
             if (element.login == loginTry) {
-                LoginCheck();
+                loginTry.value = "";
             }
         }
         return loginTry;
