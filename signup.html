@@ -140,8 +140,8 @@
         var F = document.getElementById("userPass").value;
         var G = document.getElementById("userLocation").value;
 
-        if (E == "error") {
-            alert("Este Login já está em uso, por favor escolha outro e tente novamente");
+        if (E == " ") {
+            // alert("Este Login já está em uso, por favor escolha outro e tente novamente");
         }
         else {
             ManageProfiles.add(new Profile(A, B, C, D, E, F, G));
@@ -154,29 +154,30 @@
     }
 
     function LoginCheck() {
-        var loginTry = document.getElementById("userLogin").value;
-        console.log(loginTry);
-        LogVerify(loginTry);
-        console.log(loginTry);
-        return;
-    }
-
-    function LogVerify(loginTry) {
-        for (let i = 0; i < users.length; i++) {
-            if (i == 0) {
-                i = "0";
-            }
-            const element = users[i];
-            if (element.login == document.getElementById("userLogin").value) {
-
-                document.getElementById("userLogin").innerHTML = "";
-                document.getElementById("userLogin").value = "";
-                loginTry = "error";
-                return;
-            }
+        var login = document.getElementById("userLogin").value;
+        var confirm = ManageProfiles.get(login);
+        if (confirm.length > 0) {
+            alert("Este Login já está em uso, por favor escolha outro e tente novamente");
+            return " ";
         }
-        return;
     }
+
+    // function LogVerify(loginTry) {
+    //     for (let i = 0; i < users.length; i++) {
+    //         if (i == 0) {
+    //             i = "0";
+    //         }
+    //         const element = users[i];
+    //         if (element.login == document.getElementById("userLogin").value) {
+
+    //             document.getElementById("userLogin").innerHTML = "";
+    //             document.getElementById("userLogin").value = "";
+    //             loginTry = "error";
+    //             return;
+    //         }
+    //     }
+    //     return;
+    // }
     agr();
     document.getElementById("item03").className += " active";
     // myFunction();
