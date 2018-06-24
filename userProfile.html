@@ -129,6 +129,9 @@
 
         function SearchBuildInformations(id, users) {
             for (let i = 0; i < users.length; i++) {
+                if (i==0) {
+                    i="0";
+                }
                 const element = users[i];
                 if (id == element.login) {
                     var img = document.getElementById("PIC")
