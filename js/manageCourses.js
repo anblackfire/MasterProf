@@ -4,7 +4,9 @@ const ManageCourses = (function () {
     if (!local) {
         $.get("JSON/objects.json", function (ret) {
             courses = ret;
-            save();
+
+            localStorage.setItem("courses", JSON.stringify(courses));
+            // save();
         });
     }
     else {
