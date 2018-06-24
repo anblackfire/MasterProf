@@ -24,9 +24,15 @@
     <script type="text/javascript" src="js/manageCourses.js"></script>
     <script type="text/javascript" src="js/js.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> -->
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
     <link rel="stylesheet" href="css/css.css">
+
+
 
 </head>
 
@@ -149,24 +155,24 @@
         var dayToCompare = "";
         var horariosToCompare = "";
         var courses = ManageCourses.get();
-        
+
 
         var id = sessionStorage.courseSender;
         SearchBuild(id, courses)
         // sessionStorage.IDSender = "";
-        
+
         function SearchBuild(id, courses) {
 
 
 
             for (let i = 0; i < courses.length; i++) {
-                if (i==0) {
-                    i="0";
+                if (i == 0) {
+                    i = "0";
                 }
                 const element = courses[i];
                 if (id == element.id) {
                     var img = document.getElementById("PIC")
-                    var login = element.owner;                    
+                    var login = element.owner;
                     var owner = ManageProfiles.get(login);
 
                     img.src = "img/" + owner["0"].pic;
