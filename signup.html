@@ -59,58 +59,58 @@
             <h1 class="display-3">Cadastro de usuario</h1>
         </div>
     </div>
-    <form onsubmit="alert('Submitted.');return false;">
-        <div class="row justify-content-center">
-            <div class="col-8">
-                <div class="input-group  mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default"></span>
-                    </div>
 
-                    <input type="text" placeholder="Nome" id="userName" class="form-control" pattern="^[A-Za-z]+(\s[A-Za-z]+){0,2}$" required>
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="input-group  mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                </div>
 
+                <input type="text" placeholder="Nome" id="userName" class="form-control" pattern="^[A-Za-z]+(\s[A-Za-z]+){0,2}$" required="required">
+
+            </div>
+            <div class="input-group  mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
                 </div>
-                <div class="input-group  mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default"></span>
-                    </div>
-                    <input type="email" placeholder="E-mail" id="userMail" class="form-control" required>
+                <input type="email" placeholder="E-mail" id="userMail" class="form-control" required>
+            </div>
+            <div class="input-group  mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
                 </div>
-                <div class="input-group  mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default"></span>
-                    </div>
-                    <input type="text" placeholder="Login" id="userLogin" class="form-control" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
+                <input type="text" placeholder="Login" id="userLogin" class="form-control" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
+            </div>
+            <div class="input-group  mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
                 </div>
-                <div class="input-group  mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default"></span>
-                    </div>
-                    <input type="text" placeholder="Senha" id="userPass" class="form-control" pattern="[a-zA-Z0-9]+" required>
+                <input type="text" placeholder="Senha" id="userPass" class="form-control" pattern="[a-zA-Z0-9]+" required>
+            </div>
+            <div class="input-group  mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
                 </div>
-                <div class="input-group  mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default"></span>
-                    </div>
-                    <input type="text" placeholder="Descrição" id="userDescrip" class="form-control" required>
+                <input type="text" placeholder="Descrição" id="userDescrip" class="form-control" required>
+            </div>
+            <div class="input-group  mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
                 </div>
-                <div class="input-group  mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default"></span>
-                    </div>
-                    <input type="text" placeholder="Localização" id="userLocation" class="form-control" pattern="^[A-Za-z]+(\s[A-Za-z]+){0,2}$"
-                        required>
-                </div>
+                <input type="text" placeholder="Localização" id="userLocation" class="form-control" pattern="^[A-Za-z]+(\s[A-Za-z]+){0,2}$"
+                    required>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-8 text-center">
-                <input type="submit" id="btnSend" class="btn btn-dark btn-lg">
-                <div class="diva"></div>
-                <button type="button" id="btnPageLogin" class="btn btn-dark btn-lg">Cadastrar Aulas</button>
-            </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-8 text-center">
+            <input type="submit" id="btnSend" class="btn btn-dark btn-lg">
+            <div class="diva"></div>
+            <button type="button" id="btnPageLogin" class="btn btn-dark btn-lg">Cadastrar Aulas</button>
         </div>
-    </form>
+    </div>
+
 </body>
 
 <script>
