@@ -4,19 +4,22 @@ const ManageCourses = (function () {
     if (!local) {
         $.get("JSON/objects.json", function (ret) {
             courses = ret;
-
-            localStorage.setItem("courses", JSON.stringify(courses));
-            // save();
+            console.log(courses);
+            // localStorage.setItem("courses", JSON.stringify(courses));
+            save();
         });
     }
     else {
+        console.log(local);
         courses = local;
+        // courses = local;
         save();
     }
 
     function save() {
-        // localStorage.setItem("courses", JSON.stringify(courses));
-        localStorage.setItem("courses", courses);
+        
+        localStorage.setItem("courses", JSON.stringify(courses));
+        // localStorage.setItem("courses", courses);
     }
 
     function getCourses(title) {
