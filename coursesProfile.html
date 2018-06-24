@@ -148,7 +148,7 @@
 
         var dayToCompare = "";
         var horariosToCompare = "";
-        var courses = ManageProfiles.get();
+        var courses = ManageCourses.get();
         
 
         var id = sessionStorage.courseSender;
@@ -166,17 +166,17 @@
                     var login = element.owner;                    
                     var owner = ManageProfiles.get(login);
 
-                    img.src = "img/" + owner[0].pic;
+                    img.src = "img/" + owner["0"].pic;
                     img.className = "rounded-circle";
                     img.width = "224";
                     img.height = "224";
                     img.onclick = function () {
-                        sessionStorage.IDSender = owner[0].login;
+                        sessionStorage.IDSender = owner["0"].login;
                         location.href = "userProfile.html";
                     };
                     document.getElementById("CPShowTitle").innerHTML = element.title;
                     document.getElementById("CPShowDescrip").innerHTML = element.descrip;
-                    document.getElementById("CPShowOwner").innerHTML = owner[0].title;
+                    document.getElementById("CPShowOwner").innerHTML = owner["0"].title;
                     document.getElementById("CPShowCost").innerHTML = "R$" + element.cost;
                     document.getElementById("CPShowTag").innerHTML = element.tag;
                     dayToCompare = element.dias;

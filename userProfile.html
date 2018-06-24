@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Perfil de Usuário</title>
 
-    <script src="js/jquery-3.3.1.min.js"></script>   
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -19,11 +19,11 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
-        <script type="text/javascript" src="js/manageProfiles.js"></script>
+    <script type="text/javascript" src="js/manageProfiles.js"></script>
     <script type="text/javascript" src="js/manageCourses.js"></script>
     <script type="text/javascript" src="js/js.js"></script>
-   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <link rel="stylesheet" href="css/css.css">
 
@@ -101,6 +101,9 @@
         // });
 
         var id = "";
+        var users = ManageProfiles.get();
+        var courses = ManageCourses.get();
+
         if (sessionStorage.IDSender) {
             id = sessionStorage.IDSender;
             // sessionStorage.IDSender = "";
@@ -124,7 +127,7 @@
 
 
 
-        function SearchBuildInformations(id) {
+        function SearchBuildInformations(id, users) {
             for (let i = 0; i < users.length; i++) {
                 const element = users[i];
                 if (id == element.login) {
@@ -162,8 +165,10 @@
 
             for (let i = 0; i < courses.length; i++) {
                 const element = courses[i];
+                var login = element.owner;
+                var owner = ManageProfiles.get(login);
 
-                if (id == element.owner.login) {
+                if (id == owner["0"].login) {
                     var row = table.insertRow(0);
                     var cell1 = row.insertCell(0);
                     conteudo = element.title;
