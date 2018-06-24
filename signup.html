@@ -158,7 +158,7 @@
         console.log(loginTry);
         LogVerify(loginTry);
         console.log(loginTry);
-        return (loginTry);
+        return;
     }
 
     function LogVerify(loginTry) {
@@ -172,10 +172,10 @@
                 document.getElementById("userLogin").innerHTML = "";
                 document.getElementById("userLogin").value = "";
                 loginTry = "error";
-                return (loginTry);
+                return;
             }
         }
-        return (loginTry);
+        return;
     }
     agr();
     document.getElementById("item03").className += " active";
