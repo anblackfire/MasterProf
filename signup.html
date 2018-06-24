@@ -140,7 +140,10 @@
         var F = document.getElementById("userPass").value;
         var G = document.getElementById("userLocation").value;
 
-        if (E != "error") {
+        if (E == "error") {
+            alert("Este Login já está em uso, por favor escolha outro e tente novamente");
+        }
+        else {
             ManageProfiles.add(new Profile(A, B, C, D, E, F, G));
             alert("Usuário cadastrado com sucesso");
         }
@@ -153,7 +156,7 @@
     function LoginCheck() {
         var loginTry = document.getElementById("userLogin").value;
         LogVerify(loginTry);
-        return loginTry;
+        return (loginTry);
     }
 
     function LogVerify(loginTry) {
@@ -163,14 +166,14 @@
             }
             const element = users[i];
             if (element.login == loginTry) {
-                alert("Este Login já está em uso, por favor escolha outro e tente novamente");
+
                 document.getElementById("userLogin").innerHTML = "";
                 document.getElementById("userLogin").value = "";
                 loginTry = "error";
-                return loginTry;
+                return (loginTry);
             }
         }
-        return loginTry;
+        return (loginTry);
     }
     agr();
     document.getElementById("item03").className += " active";
