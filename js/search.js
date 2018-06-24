@@ -80,12 +80,12 @@ function FilterArray(x, filter) {
             arrayFiltrado.push(data);
         }
 
-        CreateElements(x, arrayFiltrado);
+        CreateElements(x, arrayFiltrado, owner);
 
     }
 }
 // criar elementos necessários para mostrar informações e colocar na tabela posteriormente
-function CreateElements(x, arrayFiltrado) {
+function CreateElements(x, arrayFiltrado, owner) {
     // var data;
     // para cada indice que veio do array determinado pela busca
     for (let i = 0; i < arrayFiltrado.length; i++) {
@@ -95,12 +95,12 @@ function CreateElements(x, arrayFiltrado) {
 
 
 
-        Content(x, arrayFiltrado, obj, i);
+        Content(x, arrayFiltrado, obj, i, owner);
     }
 }
 
 // busca o conteudo de cada elemento do array e manda para o build table
-function Content(x, arrayFiltrado, obj, i) {
+function Content(x, arrayFiltrado, obj, i, owner) {
     // Atribuir o conteudo que interessa baseado no filtro original (perfil ou aula)
     if (arrayFiltrado[i].login) {
         obj.currentID = arrayFiltrado[i].login;
@@ -116,10 +116,10 @@ function Content(x, arrayFiltrado, obj, i) {
 
     else if (arrayFiltrado[i].id) {
         obj.currentID = arrayFiltrado[i].id;
-        obj.IMG.src = "img/" + arrayFiltrado[i].owner.pic;
+        obj.IMG.src = "img/" + owner.pic;
         obj.courseTitle.innerHTML = arrayFiltrado[i].title;
-        obj.ownerTitle.innerHTML = arrayFiltrado[i].owner.title;
-        obj.location.innerHTML = arrayFiltrado[i].owner.location;
+        obj.ownerTitle.innerHTML = owner.title;
+        obj.location.innerHTML = owner.location;
         obj.descrip.innerHTML = arrayFiltrado[i].descrip;
         obj.cost.innerHTML = "R$" + arrayFiltrado[i].cost;
 
