@@ -3,15 +3,13 @@ const ManageCourses = (function () {
     var courses = [];
     if (!local) {
         $.get("JSON/objects.json", function (ret) {
-            courses = ret;
-            console.log(courses);
+            courses = ret;            
             // localStorage.setItem("courses", JSON.stringify(courses));
             save();
         });
     }
-    else {
-        console.log(local);
-        courses = local;
+    else {        
+        courses = JSON.parse(local);
         // courses = local;
         save();
     }
