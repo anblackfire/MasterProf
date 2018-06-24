@@ -54,7 +54,7 @@ function FilterSort(x, filter, tags) {
 
 //Filtrar por texto e entregar outro array
 function FilterArray(x, filter) {
-    var owner = "";
+    
     for (let i = 0; i < x.length; i++) {
         const data = x[i];
 
@@ -67,9 +67,9 @@ function FilterArray(x, filter) {
 
             var login = data.owner;
             console.log(login);
-            owner = ManageProfiles.get(login);       
+            var owner = ManageProfiles.get(login);       
             console.log(owner);           
-            console.log(owner.login); 
+            console.log(owner[0].login); 
             // hasFilter |= owner[0].title.toUpperCase().indexOf(filter) > -1;
             // hasFilter |= owner[0].location.toUpperCase().indexOf(filter) > -1;
 
