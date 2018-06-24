@@ -69,7 +69,7 @@ function FilterArray(x, filter) {
             console.log(login);
             var owner = ManageProfiles.get(login);       
             console.log(owner);           
-            console.log(owner[0].login); 
+            console.log(owner["0"].login); 
             // hasFilter |= owner[0].title.toUpperCase().indexOf(filter) > -1;
             // hasFilter |= owner[0].location.toUpperCase().indexOf(filter) > -1;
 
@@ -120,10 +120,10 @@ function Content(x, arrayFiltrado, obj, i, owner) {
 
     else if (arrayFiltrado[i].id) {
         obj.currentID = arrayFiltrado[i].id;
-        obj.IMG.src = "img/" + owner.pic;
+        obj.IMG.src = "img/" + owner[0].pic;
         obj.courseTitle.innerHTML = arrayFiltrado[i].title;
-        obj.ownerTitle.innerHTML = owner.title;
-        obj.location.innerHTML = owner.location;
+        obj.ownerTitle.innerHTML = owner[0].title;
+        obj.location.innerHTML = owner[0].location;
         obj.descrip.innerHTML = arrayFiltrado[i].descrip;
         obj.cost.innerHTML = "R$" + arrayFiltrado[i].cost;
 

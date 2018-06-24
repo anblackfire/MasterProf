@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Perfil da Aula</title>
 
-    <script src="js/jquery-3.3.1.min.js"></script>   
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -20,11 +20,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
 
-        <script type="text/javascript" src="js/manageProfiles.js"></script>
+    <script type="text/javascript" src="js/manageProfiles.js"></script>
     <script type="text/javascript" src="js/manageCourses.js"></script>
     <script type="text/javascript" src="js/js.js"></script>
-   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <link rel="stylesheet" href="css/css.css">
 
@@ -148,14 +148,14 @@
 
         var dayToCompare = "";
         var horariosToCompare = "";
-
+        var courses = manageProfiles.get();
 
 
         var id = sessionStorage.courseSender;
-        SearchBuild(id)
+        SearchBuild(id, courses)
         // sessionStorage.IDSender = "";
 
-        function SearchBuild(id) {
+        function SearchBuild(id, courses) {
 
 
 
@@ -163,17 +163,20 @@
                 const element = courses[i];
                 if (id == element.id) {
                     var img = document.getElementById("PIC")
-                    img.src = "img/" + element.owner.pic;
+                    var login = element.owner;                    
+                    var owner = ManageProfiles.get(login);
+
+                    img.src = "img/" + owner[0].pic;
                     img.className = "rounded-circle";
                     img.width = "224";
                     img.height = "224";
                     img.onclick = function () {
-                        sessionStorage.IDSender = element.owner.login;
+                        sessionStorage.IDSender = owner[0].login;
                         location.href = "userProfile.html";
                     };
                     document.getElementById("CPShowTitle").innerHTML = element.title;
                     document.getElementById("CPShowDescrip").innerHTML = element.descrip;
-                    document.getElementById("CPShowOwner").innerHTML = element.owner.title;
+                    document.getElementById("CPShowOwner").innerHTML = owner[0].title;
                     document.getElementById("CPShowCost").innerHTML = "R$" + element.cost;
                     document.getElementById("CPShowTag").innerHTML = element.tag;
                     dayToCompare = element.dias;
