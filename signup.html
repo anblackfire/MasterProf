@@ -155,7 +155,9 @@
 
     function LoginCheck() {
         var loginTry = document.getElementById("userLogin").value;
+        console.log(loginTry);
         LogVerify(loginTry);
+        console.log(loginTry);
         return (loginTry);
     }
 
@@ -165,7 +167,7 @@
                 i = "0";
             }
             const element = users[i];
-            if (element.login.value == loginTry) {
+            if (element.login == document.getElementById("userLogin").value) {
 
                 document.getElementById("userLogin").innerHTML = "";
                 document.getElementById("userLogin").value = "";
