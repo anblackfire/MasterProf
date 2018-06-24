@@ -20,9 +20,9 @@ const ManageProfiles = (function () {
         // localStorage.setItem("courses", courses);
     }
 
-    function getProfile(title) {
-        if (title)
-            return profiles.filter(c => c.title.toLowerCase() === title.toLowerCase());
+    function getProfile(login) {
+        if (login)
+            return profiles.filter(c => c.login.toLowerCase() === login.toLowerCase());
         return profiles;
     }
 
@@ -32,7 +32,7 @@ const ManageProfiles = (function () {
     }
 
     function removeProfile(profile) {
-        var c = profiles.indexOf(c => c.title === profile.title);
+        var c = profiles.indexOf(c => c.login === profile.login);
 
         if (c === -1) return;
 
@@ -41,7 +41,7 @@ const ManageProfiles = (function () {
     }
 
     function updateProfile(id, profile) {
-        var c = profiles.indexOf(c => c.id === id);
+        var c = profiles.indexOf(c => c.login === login);
 
         if (c === -1) return;
 

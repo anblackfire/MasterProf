@@ -21,12 +21,12 @@ const ManageCourses = (function () {
     }
 
     function getCourses(title, tag) {
-        if (title && tag) {
-            var tagFilter = courses.filter(c => c.tag.toLowerCase() === tag.toLowerCase());
-            return tagFilter.filter(c => c.title.toLowerCase() === title.toLowerCase());
-        }
-        if (title)
-            return courses.filter(c => c.title.toLowerCase() === title.toLowerCase());
+        // if (title && tag) {
+        //     var tagFilter = courses.filter(c => c.tag.toLowerCase() === tag.toLowerCase());
+        //     return tagFilter.filter(c => c.title.toLowerCase() === title.toLowerCase());
+        // }
+        // if (title)
+        //     return courses.filter(c => c.title.toLowerCase() === title.toLowerCase());
         if (tag)
             return courses.filter(c => c.tag.toLowerCase() === tag.toLowerCase());
         return courses;
