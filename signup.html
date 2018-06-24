@@ -144,6 +144,9 @@
             ManageProfiles.add(new Profile(A, B, C, D, E, F, G));
             alert("Usuário cadastrado com sucesso");
         }
+        // else {
+        //     location.reload();
+        // }
 
     }
 
@@ -161,7 +164,8 @@
             const element = users[i];
             if (element.login == loginTry) {
                 alert("Este Login já está em uso, por favor escolha outro e tente novamente");
-                document.getElementById("userLogin").innerHTML = "";                            
+                document.getElementById("userLogin").value = "";
+                loginTry = "";
             }
         }
         return loginTry;
