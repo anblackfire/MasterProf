@@ -20,7 +20,7 @@ const ManageCourses = (function () {
         // localStorage.setItem("courses", courses);
     }
 
-    function getCourses(title, tag) {
+    function getCourses(tag) {
         // if (title && tag) {
         //     var tagFilter = courses.filter(c => c.tag.toLowerCase() === tag.toLowerCase());
         //     return tagFilter.filter(c => c.title.toLowerCase() === title.toLowerCase());
