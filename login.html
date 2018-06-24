@@ -59,26 +59,27 @@
         </div>
     </div>
 
-    <div class="row justify-content-center">
-        <div class="col-8">
-            <div class="input-group  mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
+    <form onclick= LoginSearch();>
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="input-group  mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                    </div>
+                    <input type="text" placeholder="Login" id="userLogin" class="form-control"  pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required title="Preencha um login válido">
                 </div>
-                <input type="text" placeholder="Login" id="userLogin" class="form-control">
-            </div>
 
-            <div class="input-group  mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                <div class="input-group  mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                    </div>
+                    <input type="text" placeholder="Senha" id="userPass" class="form-control" pattern="[a-zA-Z0-9]+" required title="Informe uma senha válida">
                 </div>
-                <input type="text" placeholder="Senha" id="userPass" class="form-control">
+
+
             </div>
-
-
         </div>
-    </div>
-
+    </form>
 
     <div class="row justify-content-center">
         <div class="col-8 text-center">
@@ -87,7 +88,7 @@
             <div class="diva"></div>
             <button type="button" id="btnPageSignUp" class="btn btn-dark btn-lg">Pagina de Cadastro</button>
             <div class="diva"></div>
-            <button type="button" id="ajaquis" class="btn btn-dark btn-lg">ajaquis</button>
+
         </div>
     </div>
 
@@ -96,26 +97,21 @@
         //botoes
 
 
-        document.getElementById("ajaquis").addEventListener("click", function () {
-
-            $.get("JSON/objects.json", function (data) {
-                console.log(data);
-            });
-
-        });
 
 
-        document.getElementById("btnSendLogin").addEventListener("click", function () {
-            var subLogin = document.getElementById("userLogin").value;
-            var subPass = document.getElementById("userPass").value;
-            LoginSearch(subLogin, subPass);
-        });
+        // document.getElementById("btnSendLogin").addEventListener("click", function () {
+
+        //     // LoginSearch();
+        // });
+
         document.getElementById("btnPageSignUp").addEventListener("click", function () {
             location.href = "signup.html";
         });
 
         // verificar login
-        function LoginSearch(subLogin, subPass) {            
+        function LoginSearch() {
+            var subLogin = document.getElementById("userLogin").value;
+            var subPass = document.getElementById("userPass").value;
             var users = ManageProfiles.get();
             for (let i = 0; i < users.length; i++) {
                 const element = users[i];

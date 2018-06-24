@@ -76,13 +76,14 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default"></span>
                 </div>
-                <input type="text" placeholder="Título" id="courseTitle" class="form-control" pattern="^[A-Za-z]+(\s[A-Za-z]+){0,2}$" required>
+                <input type="text" placeholder="Título" id="courseTitle" class="form-control" pattern="^[A-Za-z]+(\s[A-Za-z]+){0,2}$" required
+                    title="Uma a três palavras com somente um espaço entre as palavras.">
             </div>
             <div class="input-group  mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default"></span>
                 </div>
-                <select class="form-control" id="courseTag">                    
+                <select class="form-control" id="courseTag">
                     <option value="musica">Música</option>
                     <option value="idioma">Idioma</option>
                     <option value="esportes">Esportes</option>
@@ -92,7 +93,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default"></span>
                 </div>
-                <input type="text" placeholder="Custo/Aula" id="courseCost" class="form-control" pattern="[0-9]" required>
+                <input type="text" placeholder="Custo/Aula" id="courseCost" class="form-control" pattern="[0-9]" required title="Informe um valor numérico">
             </div>
 
             <div class="input-group  mb-3">
@@ -100,7 +101,7 @@
                     <span class="input-group-text" id="inputGroup-sizing-default"></span>
                 </div>
                 <!-- <input type="text" placeholder="Descrição" id="courseDescrip" class="form-control"> -->
-                <textarea class="form-control" aria-label="With textarea" id="courseDescrip" placeholder="Descrição" required></textarea>
+                <textarea class="form-control" aria-label="With textarea" id="courseDescrip" placeholder="Descrição" required title="Informe qualquer coisa"></textarea>
             </div>
             <div class="input-group  mb-3 justify-content-center">
                 <div>
@@ -236,11 +237,11 @@
         function NewID() {
             var generated = Math.floor(Math.random() * 9999) + 1111;
             IDVerify(generated);
-            return generated;            
+            return generated;
         }
 
         function IDVerify(generated) {
-            
+
             for (let i = 0; i < courses.length; i++) {
                 if (i == 0) {
                     i = "0";
