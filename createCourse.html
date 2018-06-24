@@ -63,103 +63,103 @@
             <h1 class="display-3">Cadastro de Aulas</h1>
         </div>
     </div>
-
-    <div class="row justify-content-center">
-        <div class="col-8 ">
-            <!-- <div class="input-group  mb-3">
+    <form onclick=t agGrabber(nCourseTags,dias,horas);>
+        <div class="row justify-content-center">
+            <div class="col-8 ">
+                <!-- <div class="input-group  mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default"></span>
                 </div>
                 <input type="text" placeholder="ID do Dono" id="ownerID" class="form-control">
             </div> -->
-            <div class="input-group  mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
-                </div>
-                <input type="text" placeholder="Título" id="courseTitle" class="form-control" pattern="^[A-Za-z]+(\s[A-Za-z]+){0,2}$" required
-                    title="Uma a três palavras com somente um espaço entre as palavras.">
-            </div>
-            <div class="input-group  mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
-                </div>
-                <select class="form-control" id="courseTag">
-                    <option value="musica">Música</option>
-                    <option value="idioma">Idioma</option>
-                    <option value="esportes">Esportes</option>
-                </select>
-            </div>
-            <div class="input-group  mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
-                </div>
-                <input type="text" placeholder="Custo/Aula" id="courseCost" class="form-control" pattern="[0-9]" required title="Informe um valor numérico">
-            </div>
-
-            <div class="input-group  mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default"></span>
-                </div>
-                <!-- <input type="text" placeholder="Descrição" id="courseDescrip" class="form-control"> -->
-                <textarea class="form-control" aria-label="With textarea" id="courseDescrip" placeholder="Descrição" required title="Informe qualquer coisa"></textarea>
-            </div>
-            <div class="input-group  mb-3 justify-content-center">
-                <div>
-                    <div class="input-group  mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default"></span>
-                        </div>
-                        <select class="selectpicker" id="dias" multiple title="Dias da semana">
-
-                            <option value="1">DOM</option>
-                            <option value="1">SEG</option>
-                            <option value="1">TER</option>
-                            <option value="1">QUA</option>
-                            <option value="1">QUI</option>
-                            <option value="1">SEX</option>
-                            <option value="1">SAB</option>
-
-                        </select>
+                <div class="input-group  mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"></span>
                     </div>
+                    <input type="text" placeholder="Título" id="courseTitle" class="form-control" pattern="^[A-Za-z]+(\s[A-Za-z]+){0,2}$" required
+                        title="Uma a três palavras com somente um espaço entre as palavras.">
                 </div>
-                <div>
-                    <div class="input-group  mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default"></span>
-                        </div>
-                        <select class="selectpicker" id="horas" multiple title="Horários">
-
-                            <option value="1">08:00</option>
-                            <option value="1">09:00</option>
-                            <option value="1">10:00</option>
-                            <option value="1">11:00</option>
-                            <option value="1">12:00</option>
-                            <option value="1">13:00</option>
-                            <option value="1">14:00</option>
-                            <option value="1">15:00</option>
-                            <option value="1">16:00</option>
-                            <option value="1">17:00</option>
-                            <option value="1">18:00</option>
-                            <option value="1">19:00</option>
-                            <option value="1">20:00</option>
-
-                        </select>
+                <div class="input-group  mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"></span>
                     </div>
+                    <select class="form-control" id="courseTag">
+                        <option value="musica">Música</option>
+                        <option value="idioma">Idioma</option>
+                        <option value="esportes">Esportes</option>
+                    </select>
+                </div>
+                <div class="input-group  mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                    </div>
+                    <input type="text" placeholder="Custo/Aula" id="courseCost" class="form-control" pattern="[0-9]" required title="Informe um valor numérico">
                 </div>
 
+                <div class="input-group  mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                    </div>
+                    <!-- <input type="text" placeholder="Descrição" id="courseDescrip" class="form-control"> -->
+                    <textarea class="form-control" aria-label="With textarea" id="courseDescrip" placeholder="Descrição" required title="Informe qualquer coisa"></textarea>
+                </div>
+                <div class="input-group  mb-3 justify-content-center">
+                    <div>
+                        <div class="input-group  mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                            </div>
+                            <select class="selectpicker" id="dias" multiple title="Dias da semana">
+
+                                <option value="1">DOM</option>
+                                <option value="1">SEG</option>
+                                <option value="1">TER</option>
+                                <option value="1">QUA</option>
+                                <option value="1">QUI</option>
+                                <option value="1">SEX</option>
+                                <option value="1">SAB</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="input-group  mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                            </div>
+                            <select class="selectpicker" id="horas" multiple title="Horários">
+
+                                <option value="1">08:00</option>
+                                <option value="1">09:00</option>
+                                <option value="1">10:00</option>
+                                <option value="1">11:00</option>
+                                <option value="1">12:00</option>
+                                <option value="1">13:00</option>
+                                <option value="1">14:00</option>
+                                <option value="1">15:00</option>
+                                <option value="1">16:00</option>
+                                <option value="1">17:00</option>
+                                <option value="1">18:00</option>
+                                <option value="1">19:00</option>
+                                <option value="1">20:00</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+
+                </div>
 
             </div>
-
         </div>
-    </div>
-    </div>
-
-    <div class="row justify-content-center">
-        <div class="col-8 text-center">
-            <input type="submit" id="btnSend" class="btn btn-dark btn-lg">
         </div>
-    </div>
 
+        <div class="row justify-content-center">
+            <div class="col-8 text-center">
+                <input type="submit" id="btnSend" class="btn btn-dark btn-lg">
+            </div>
+        </div>
+    </form>
     <script>
 
         var courses = ManageCourses.get();
@@ -205,15 +205,16 @@
             time(nCourseTags, dias, horas);
         }
         //funcoes dos botoes
-        document.getElementById("btnSend").addEventListener("click", function () {
-            // verify();
-            //Retirar createNewProfile() e colocar verify no lugar
-            var dias = [];
-            var horas = [];
-            var nCourseTags = [];
-            tagGrabber(nCourseTags, dias, horas);
+        var dias = [];
+        var horas = [];
+        var nCourseTags = [];
+        // document.getElementById("btnSend").addEventListener("click", function () {
+        //     // verify();
+        //     //Retirar createNewProfile() e colocar verify no lugar
 
-        });
+        //     tagGrabber(nCourseTags, dias, horas);
+
+        // });
 
         // var week = document.getElementsByClassName("weekday");
         // console.log(week);

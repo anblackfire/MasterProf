@@ -141,6 +141,7 @@
         var G = document.getElementById("userLocation").value;
 
         if (E == " ") {
+            alert("Este Login já está em uso, por favor escolha outro e tente novamente");
             // alert("Este Login já está em uso, por favor escolha outro e tente novamente");
         }
         else {
@@ -158,8 +159,7 @@
         var confirm = ManageProfiles.get(login);
         if (confirm.length > 0) {
             document.getElementById("userLogin").innerHTML = "";
-            document.getElementById("userLogin").value = "";
-            alert("Este Login já está em uso, por favor escolha outro e tente novamente");
+            document.getElementById("userLogin").value = "";           
             return " ";
         } else {
             return login;
