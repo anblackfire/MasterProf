@@ -233,6 +233,10 @@
             Contract();                       
         });
 
+        function DeleteCourse() {
+            ManageCourses.remove(course);
+        }
+
         function Contract() {
 
             course.Contract = sessionStorage.userLogged;

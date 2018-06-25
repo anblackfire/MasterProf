@@ -38,7 +38,7 @@ const ManageCourses = (function () {
     }
 
     function removeCourse(course) {
-        var c = courses.indexOf(c => c.title === course.title);
+        var c = courses.indexOf(c => c.id === course.id);
 
         if (c === -1) return;
 
