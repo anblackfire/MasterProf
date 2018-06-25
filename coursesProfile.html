@@ -183,7 +183,7 @@
                         document.getElementById("btnContratar").disabled = true;
                         var delBtn = document.createElement("button");
                         delBtn.innerHTML = "Excluir Aula";
-                        delBtn.onclick = function () {                            
+                        delBtn.onclick = function () {
                             DeleteCourse();
                         };
                         delBtn.className = "btn btn-dark btn-lg";
@@ -196,7 +196,7 @@
                         document.getElementById("statusLabel").innerHTML = "Você contratou esta aula";
                         var cancelBtn = document.createElement("button");
                         cancelBtn.innerHTML = "Cancelar contratação";
-                        cancelBtn.onclick = function () {                            
+                        cancelBtn.onclick = function () {
                             CancelCourse();
                         };
                         cancelBtn.className = "btn btn-dark btn-lg";
@@ -256,16 +256,17 @@
         function StatusCourse() {
             if (course.contract == "") {
                 document.getElementById("statusLabel").innerHTML = "Está Aula ainda não foi contratada por ninguém";
-            }else{
+            } else {
                 document.getElementById("btnContratar").disabled = true;
                 document.getElementById("statusLabel").innerHTML = "Está Aula já foi contratada";
-            }           
+            }
 
         }
 
         function DeleteCourse() {
             ManageCourses.remove(course);
             alert("Aula deletada");
+            location.href = "userProfile.html";
         }
 
 
@@ -273,6 +274,7 @@
             course.contract = "";
             ManageCourses.update(course);
             alert("Aula CANCELADA com sucesso");
+            location.reload();
         }
         function Contract() {
 
@@ -299,7 +301,7 @@
             // }
 
             alert("Aula contratada com sucesso");
-
+            location.reload();
         }
 
         agr();

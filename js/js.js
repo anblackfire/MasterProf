@@ -36,7 +36,6 @@ function agr() {
     nav.insertAdjacentElement("afterbegin", NEnavBar);
     if (sessionStorage.userLogged) {
         nav = document.getElementById("navbarUL");
-
         NEnavBar = document.createElement("li");
         NEnavBar.id = "item04";
         NEnavBar.className = "nav-item";
@@ -61,6 +60,18 @@ function agr() {
         NEnavBar.className = "nav-link";
         NEnavBar.innerHTML = "Cadastrar Aula";
         NEnavBar.href = "createCourse.html";
+        nav.insertAdjacentElement("afterbegin", NEnavBar);
+
+        nav = document.getElementById("navbarUL");
+        NEnavBar = document.createElement("li");
+        NEnavBar.id = "item07";
+        NEnavBar.className = "nav-item";
+        nav.insertAdjacentElement("Beforeend", NEnavBar);
+        nav = document.getElementById("item07");
+        NEnavBar = document.createElement("a");
+        NEnavBar.className = "nav-link";
+        NEnavBar.innerHTML = "Aulas Contratadas";
+        NEnavBar.href = "contracted.html";
         nav.insertAdjacentElement("afterbegin", NEnavBar);
 
         nav = document.getElementById("navbarUL");
