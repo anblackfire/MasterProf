@@ -59,21 +59,60 @@
         </div>
     </div>
 
-    
-        <div class="row justify-content-center">
-            <div class="col-8">
-                
-            </div>
+
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <table id="tableContracted">
+            </table>
         </div>
+    </div>
 
 
-       
-   
+
+
 
     <script>
-        
 
-        
+
+        var login = sessionStorage.userLogged;
+        var courses = ManageCourses.get();
+
+        function clearTable() {
+            var table = document.getElementById("tableContracted");
+            table.innerHTML = "";
+        }
+
+        function SearchBuildTable(login, courses) {
+            clearTable();
+            var table = document.getElementById("tableContracted");
+            var conteudo = "";
+
+            for (let i = 0; i < courses.length; i++) {
+                const element = courses[i];
+
+                if (login == element.contracted) {
+                    var row = table.insertRow(0);
+                    var cell1 = row.insertCell(0);
+                    conteudo = element.title;
+                    cell1.innerHTML = conteudo;
+                    cell1.style = "background-color: #aaaaaa";
+                    cell1.onclick = function () {
+                        sessionStorage.courseSender = element.id;
+                        location.href = "coursesProfile.html";
+                    };
+
+                }
+
+                else if (i == courses.length - 1 && table.innerHTML == "") {
+                    var row = table.insertRow(0);
+                    var cell1 = row.insertCell(0);
+                    conteudo = "Nenhuma aula encontrada";
+                    cell1.innerHTML = conteudo;
+
+                }
+            }
+        }
+
         agr();
         document.getElementById("item07").className += " active";
     </script>
