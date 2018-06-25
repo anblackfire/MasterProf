@@ -89,6 +89,9 @@
             var conteudo = "";
 
             for (let i = 0; i < courses.length; i++) {
+                if (i==0) {
+                     i="0";
+                }
                 const element = courses[i];
                 if (login == element.contracted) {
                     var row = table.insertRow(0);

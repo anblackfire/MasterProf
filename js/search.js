@@ -1,4 +1,4 @@
-// gatilho       
+// gatilho no botão para o caso de uma pesquisa      
 document.getElementById("btnFilter").addEventListener("click", function () {
     Start();
 });
@@ -12,39 +12,45 @@ document.getElementById("courses").addEventListener("click", function () {
     document.getElementById("select").disabled = false;
 });
 
-
+// chamar função de construir conteudo pelo menos uma vez
 Start();
 
 function Start() {
+    //criar primeiros filtros:
+    //x = se procura perfil ou curso
     var x = document.getElementsByName("sort");
+    // filtro de palavra-chave
     var filter = document.getElementById("filterText").value.toUpperCase();
+    // filtro de tag
     var tags = document.getElementById("select").value;
-    // limpa tabela e começa os filtros
+    // limpa tabela e chama a primeira função
     ClearTable();
     FilterSort(x, filter, tags);
 }
 
 // autoexplicativo
 function ClearTable() {
+    //pega a tabela pelo id
     var table = document.getElementById("buildHere");
+    // e limpa
     table.innerHTML = ""
 }
 
+//filtrar o tipo de busca por perfil ou por aula marcados nos dois radio inputs
 function FilterSort(x, filter, tags) {
-    //filtrar o tipo de busca por perfil ou por aula marcados nos dois radio
+    //varredura no x
     for (var i = 0; i < x.length; i++) {
         //se achar o radio filtrado passa o valor dele
         if (x[i].checked) {
             x = x[i].value;
             // confere o valor e determina o array correspondente
             if (x == "profile") {
-                //procura por perfil 
+                //atribui a X o array de perfis já filtrado por titulo e chama a proxima função
                 x = ManageProfiles.get(tags);
                 FilterArray(x, filter);
             }
             else if (x == "course") {
-                // procura por aulas 
-
+                //atribui a X o array de cursos já filtrado por tags e chama a proxima função
                 x = ManageCourses.get(tags);
                 FilterArray(x, filter);
             }
@@ -52,43 +58,51 @@ function FilterSort(x, filter, tags) {
     }
 }
 
-//Filtrar por texto e entregar outro array
+//Filtrar por palavras-chave e entregar outro array
 function FilterArray(x, filter) {
-
+    //varredura no x
     for (let i = 0; i < x.length; i++) {
         const data = x[i];
-
+        //cria o novo array a ser entrege
         var arrayFiltrado = [];
-        var hasFilter = data.title.toUpperCase().indexOf(filter) > -1;
-        // hasFilter sera true se encontrar data.title.toUpperCase().indexOf(filter) > -1;
-        // opção extra para o tipo de filtro
-        if (data.id) {
 
+        // hasFilter sera true se encontrar no titulo a palavra-chave procurada
+        var hasFilter = data.title.toUpperCase().indexOf(filter) > -1;
+
+        // opção extra para o tipo de filtro, se data tiver ID
+        if (data.id) {
+            // se data tiver um ID, então é coletado o parametro "owner"
             var login = data.owner;
+            // e usado para filtrar novamente o array baseado no que voltou
             var owner = ManageProfiles.get(login);
+            // no caso, busca as palavras chave tambem nos  parametros "title" e "location" dos donos daquela aula
             hasFilter |= owner["0"].title.toUpperCase().indexOf(filter) > -1;
             hasFilter |= owner["0"].location.toUpperCase().indexOf(filter) > -1;
 
 
         }
+        // opção extra para o tipo de filtro, se data tiver Login
         else if (data.login) {
-
+            // se data tiver um Login, então é também conferido se encontra-se no "Location" a palavra-chave procurada 
             hasFilter |= data.location.toUpperCase().indexOf(filter) > -1;
         }
-        // .push do conteudo encontrado para o array filtrado
+        // .push do conteudo encontrado para o array filtrado a cada sucesso
         if (hasFilter) {
             arrayFiltrado.push(data);
         }
 
+        // chamada a proxima função
         CreateElements(x, arrayFiltrado, owner);
 
     }
 }
-// criar elementos necessários para mostrar informações e colocar na tabela posteriormente
+
+// criar elementos necessários para mostrar informações e colocar no site posteriormente
 function CreateElements(x, arrayFiltrado, owner) {
 
     // para cada indice que veio do array determinado pela busca
     for (let i = 0; i < arrayFiltrado.length; i++) {
+        // cria o OBJ para guardar informações
         var obj = new LetterOBJ;
         //criar elementos de img e labels
         const element = arrayFiltrado[i];
