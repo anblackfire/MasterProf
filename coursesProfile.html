@@ -147,22 +147,31 @@
 
         // var dayToCompare = "";
         // var horariosToCompare = "";
+        // pegar valores importantes, array de aulas, usuário logado e aula atual;
         var courses = ManageCourses.get();
         var id = sessionStorage.courseSender;
         var course = "";
+        // construir alguma coisa de cara
         SearchBuild(id, courses, course)
 
         function SearchBuild(id, courses) {
+            //varrer courses
             for (let i = 0; i < courses.length; i++) {
+                // devido ao JSON esse IF serve para não dar erro ¯\_(ツ)_/¯ HAHAHAHAHAHAH, sabe Deus o que acontece com o JSON
                 if (i == 0) {
                     i = "0";
                 }
                 const element = courses[i];
+                //se o usuário logado for o mesmo do que o dono encontrado na varredura, então construir as informações
                 if (id == element.id) {
+                    // não tive tempo de separar, esta função faz tudo de uma vez só, desculpinha.
                     var img = document.getElementById("PIC")
+                    //pega o Obj do dono da aula também
                     var login = element.owner;
                     var owner = ManageProfiles.get(login);
+                    // seta a aula atual
                     course = element;
+                    //cria os elementos e atribui os valores que interessam conforme eles são criados
                     img.src = "img/" + owner["0"].pic;
                     img.className = "rounded-circle";
                     img.width = "224";
@@ -177,8 +186,10 @@
                     document.getElementById("CPShowOwner").innerHTML = owner["0"].title;
                     document.getElementById("CPShowCost").innerHTML = "R$" + element.cost;
                     document.getElementById("CPShowTag").innerHTML = element.tag;
+                    // dayToCompare e horariosToCompare esão comentados pois serão usados no futuro
                     // dayToCompare = element.dias;
                     // horariosToCompare = element.horas;
+                    // se o usuário logado for o dono da aula cria novas coisas, coloca elas no lugar e desabilita o botao de contratar. Tudo de uma vez
                     if (sessionStorage.userLogged == owner["0"].login) {
                         document.getElementById("btnContratar").disabled = true;
                         var delBtn = document.createElement("button");
@@ -191,6 +202,7 @@
                         document.getElementById("btnContratar").insertAdjacentElement("afterend", document.createElement("br"));
                         document.getElementById("btnContratar").insertAdjacentElement("afterend", delBtn);
                     }
+                    // se o usuário logado for o cara que contratou a aula cria otas coisas, coloca elas no lugar e desabilita o botao de contratar. Tudo de uma vez
                     if (sessionStorage.userLogged == element.contract) {
                         document.getElementById("btnContratar").disabled = true;
                         document.getElementById("statusLabel").innerHTML = "Você contratou esta aula";
@@ -207,6 +219,7 @@
                     }
                     break;
                 }
+                // se der ruim por algum motivo
                 else if (i == courses.length) {
                     alert("nenhum ID encontrado");
                     document.getElementById("CPShowTitle").innerHTML = "mostrar Titulo do curso";
@@ -219,40 +232,33 @@
             // Schudule(dayToCompare, horariosToCompare);
         }
 
+        // reservado para uso futuro
         // function Schudule(dayToCompare, horariosToCompare) {
-
         //     var day = document.getElementById("dias");
         //     var horarios = document.getElementById("horas");
-
         //     for (var i = 0; i < day.options.length; i++) {
         //         if (dayToCompare[i] != 0) {
         //             day.options[i].disabled = true;
-
-
         //         }
         //         else {
-
-
         //         }
-
         //     }
-
         //     for (var i = 0; i < horarios.options.length; i++) {
         //         if (horariosToCompare[i] != 0) {
         //             horarios.options[i].disabled = true;
-
         //         }
-
         //     }
-
         //     // console.log(day);
         //     // console.log(horariosToCompare);
         // }
 
+
+        //gatilho
         document.getElementById("btnContratar").addEventListener("click", function () {
             Contract();
         });
 
+        // escreve o status da aula, contratada ou não
         function StatusCourse() {
             if (course.contract == "") {
                 document.getElementById("statusLabel").innerHTML = "Está Aula ainda não foi contratada por ninguém";
@@ -263,24 +269,28 @@
 
         }
 
+
+        // deleta a aula em questão, essa função só é chamada pelo botão que só é criado caso o usuário logado seja o dono :)
         function DeleteCourse() {
             ManageCourses.remove(course);
             alert("Aula deletada");
             location.href = "userProfile.html";
         }
 
-
+        // Cancela a aula contratada em questão, essa função só é chamada pelo botão que só é criado caso o usuário logado seja quem contratou a mesma :)
         function CancelCourse() {
             course.contract = "";
             ManageCourses.update(course);
             alert("Aula CANCELADA com sucesso");
             location.reload();
         }
-        function Contract() {
 
+        // contrata a aula mudando o status course.contract para o usuário atual
+        function Contract() {
             course.contract = sessionStorage.userLogged;
             ManageCourses.update(course);
 
+            // reservado para so futuro
             // var a = document.getElementById("dias");
             // var b = document.getElementById("horas");
             // // dias = [];
@@ -288,16 +298,12 @@
             // for (var i = 0; i < a.options.length; i++) {
             //     if (a.options[i].selected == true) {
             //         dayToCompare[i] = sessionStorage.userLogged;
-
             //     }
-
             // }
             // for (var i = 0; i < b.options.length; i++) {
             //     if (b.options[i].selected == true) {
             //         horariosToCompare[i] = sessionStorage.userLogged;
-
             //     }
-
             // }
 
             alert("Aula contratada com sucesso");

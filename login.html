@@ -59,7 +59,7 @@
         </div>
     </div>
 
-    <form onsubmit= LoginSearch(); action="userProfile.html">
+    <form onsubmit=L oginSearch(); action="userProfile.html">
         <div class="row justify-content-center">
             <div class="col-8">
                 <div class="input-group  mb-3">
@@ -102,19 +102,23 @@
 
 
 
-        // verificar login
+        // verificar login, faz tudo de uma vez, infelizmente.
         function LoginSearch() {
+            // pega valores informados
             var subLogin = document.getElementById("userLogin").value;
             var subPass = document.getElementById("userPass").value;
+            // busca os usuários existentes
             var users = ManageProfiles.get();
+            //varre em busca de correspondencias
             for (let i = 0; i < users.length; i++) {
                 const element = users[i];
                 if (subLogin == users[i].login && subPass == users[i].pass) {
+                    // em caso de sucesso guarda o usuário logado e o form se encarrega de ir para a pagina de perfil
                     sessionStorage.setItem("IDsender", "");
                     sessionStorage.setItem("userLogged", users[i].login);
-                    alert("usuário logado com sucesso, Bem vindo " + users[i].title);                    
-                    // location.href = "userProfile.html";
-                    
+                    alert("usuário logado com sucesso, Bem vindo " + users[i].title);
+                } else if (i == users.length - 1) {
+                    alert("Tentative de login fracassada, informe uma combinação correta");
                 }
             }
         }

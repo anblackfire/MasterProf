@@ -1,5 +1,5 @@
 
-
+// criar variaveis importantes se elas não existirem ainda
 if (!sessionStorage.userLogged) {
     sessionStorage.setItem("userLogged", "");
 }
@@ -10,7 +10,8 @@ if (!sessionStorage.courseSender) {
     sessionStorage.setItem("courseSender", "");
 }
 
-
+// cria navbar de acordo com o que é para ser mostrado.
+// francamente, a cara do professor quando viu isso me diz que não foi uma boa solução ou foi, no mínimo, uma coisa esquisita
 function agr() {
     var nav = document.getElementById("navbar");
     NEnavBar = document.createElement("a");
@@ -34,6 +35,7 @@ function agr() {
     NEnavBar.innerHTML = "Buscar Aulas";
     NEnavBar.href = "innerSearch.html";
     nav.insertAdjacentElement("afterbegin", NEnavBar);
+    // ele cria coisas diferentes de umusuário estiver logado
     if (sessionStorage.userLogged) {
         nav = document.getElementById("navbarUL");
         NEnavBar = document.createElement("li");
@@ -90,8 +92,6 @@ function agr() {
         nav.insertAdjacentElement("afterbegin", NEnavBar);
     }
     else {
-
-
         nav = document.getElementById("navbarUL");
         NEnavBar = document.createElement("li");
         NEnavBar.id = "item02";
@@ -126,17 +126,11 @@ function agr() {
 // declaracao de variaveis e objetos
 var courses = [];
 var users = [];
-// var userLogged = "";
+
+
+// dois objetos que servem para o perfil de usuário e de aula :D
 function Profile(title, descrip, mail, pic, login, pass, location) {
-    // this.id = id;
-    // this.name = document.getElementById("userName").value;
-    // this.descrip = document.getElementById("userDescrip").value;
-    // this.mail = document.getElementById("userMail").value;
-    // this.pic = "pic";
-    // this.login = document.getElementById("userLogin").value;
-    // this.pass = document.getElementById("userPass").value;
-    // this.id = id;
-    this.title = title;
+       this.title = title;
     this.descrip = descrip;
     this.mail = mail;
     this.pic = pic;
@@ -154,22 +148,5 @@ function Course(id, owner, title, descrip, cost, tag, dias, horas, contract) {
     this.dias = dias;
     this.horas = horas;
     this.contract = contract;
-    // this.time = time;
+    
 }
-// arrayTeste1 = [1, 2, 0, 1, 0, 0, 1];
-// arrayTeste2 = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1];
-
-
-// users[0] = new Profile("Lula Molusco", "Não dou aula para o Bob Esponja e o Patrick", "tentacuos@mail.com", "LM.jpg", "tentaculos", "1234", "Fenda do Bikini");
-// users[1] = new Profile("Pasquale", "Jamais trema na linguiça", "portuga@mail.com", "PASQ.jpg", "Pasquale", "1234", "Sampa");
-// users[2] = new Profile("aluno", "HerpDerp HurDUr", "mail@mail.com", "HERP.jpg", "aluno1", "1234", "Curitiba");
-// users[3] = new Profile("Dr. Rey", "Viva Bwrasil", "emagreça@mail.com", "REY.jpg", "emagreça", "1234", "Holywood");
-// courses[0] = new Course("6666", users[0], "Aulas de Clarinete", "Aula completa de clarinete", "10", "musica", arrayTeste1, arrayTeste2)
-// courses[1] = new Course("7777", users[1], "Aulas de Português", "Lorem ipsum dolor sit amet, sagittis risus et eu. Euismod suspendisse ipsum tellus integer, ut ac posuere at libero leo faucibus, suscipit id sit arcu, pede turpis lacus, diam vulputate at tortor. Vestibulum praesent urna molestie augue et, proin sociis. Sed a in ac arcu quam, praesent a massa bibendum nec bibendum ridiculus, dolore aenean sem ante justo est, wisi et nulla sit nec, justo libero porta massa sapien ut magna. Nisl dui dapibus sagittis vivamus quis magna, neque vel massa wisi sed pede sed, vehicula ut duis urna odio commodo magna, condimentum magnis vel vel. Non ut libero mauris elit, donec in in et, gravida mauris ante taciti a massa nam, molestie adipiscing praesent vulputate molestie nulla. Suspendisse vehicula elementum, magna nec malesuada sem a viverra ipsum. Vitae sed non parturient. Sed pellentesque wisi eum mi, nulla erat arcu rutrum erat a tincidunt. Pellentesque mi sapien est mauris urna donec. ", "20", "idioma", arrayTeste1, arrayTeste2)
-// courses[2] = new Course("8888", users[0], "Aulas de Ciclismo", "descrição completa 3 ", "10", "esportes", arrayTeste1, arrayTeste2)
-// courses[3] = new Course("9999", users[3], "Aulas de Inglês", "descrição completa 4 ", "10", "idioma", arrayTeste1, arrayTeste2)
-// ManageCourses.add(new Course("6666", users[0], "Aulas de Clarinete", "Aula completa de clarinete", "10", "musica", arrayTeste1, arrayTeste2));
-// ManageCourses.add(new Course("7777", users[1], "Aulas de Português", "Lorem ipsum dolor sit amet, sagittis risus et eu. Euismod suspendisse ipsum tellus integer, ut ac posuere at libero leo. ", "20", "idioma", arrayTeste1, arrayTeste2));
-// ManageCourses.add(new Course("8888", users[0], "Aulas de Ciclismo", "descrição completa 3 ", "10", "esportes", arrayTeste1, arrayTeste2));
-// ManageCourses.add(new Course("9999", users[3], "Aulas de Inglês", "descrição completa 4 ", "10", "idioma", arrayTeste1, arrayTeste2));
-// outras funçoes 

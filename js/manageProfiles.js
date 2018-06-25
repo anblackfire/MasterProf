@@ -3,21 +3,20 @@ const ManageProfiles = (function () {
     var profiles = [];
     if (!localP) {
         $.get("JSON/profiles.json", function (ret) {
-            profiles = ret;            
-            // localStorage.setItem("courses", JSON.stringify(courses));
+            profiles = ret;
             save();
         });
     }
-    else {        
+    else {
         profiles = JSON.parse(localP);
-        // courses = local;
+
         save();
     }
 
     function save() {
-        
+
         localStorage.setItem("profiles", JSON.stringify(profiles));
-        // localStorage.setItem("courses", courses);
+
     }
 
     function getProfile(login) {
@@ -56,5 +55,3 @@ const ManageProfiles = (function () {
         update: updateProfile
     }
 })();
-
-// ManageCourses.add(new Course(1, "matheus", "matheus", "matheus", 100, "matheus", 20, 40));

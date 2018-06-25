@@ -74,25 +74,29 @@
     <script>
 
 
-
+        // pega informações importantes já de cara
         var login = sessionStorage.getItem("userLogged");
         var courses = ManageCourses.get();
-
+        
+        //autoexplicativo
         function clearTable() {
             var table = document.getElementById("tableContracted");
             table.innerHTML = "";
         }
-
+        
+        // contruir conteúdo a ser mostrado na página
         function SearchBuildTable(login, courses) {
             clearTable();
             var table = document.getElementById("tableContracted");
             var conteudo = "";
-
+            // varredura pelos cursos
             for (let i = 0; i < courses.length; i++) {
+                 // devido ao JSON esse IF serve para não dar erro ¯\_(ツ)_/¯ HAHAHAHAHAHAH, sabe Deus o que acontece com o JSON, cansou de ver isso? eu cansei
                 if (i == 0) {
                     i = "0";
                 }
                 const element = courses[i];
+                // se encontrar uma aula que tenha sido contratada pelo usuário que erstá logado, então é construida a tabela
                 if (login == element.contract) {
                     var row = table.insertRow(0);
                     var cell1 = row.insertCell(0);
@@ -105,6 +109,7 @@
                     };
 
                 }
+                // se chegar no último e nada tiver na tabela é necessário informar também
                 else if (i == courses.length - 1 && table.innerHTML == "") {
                     var row = table.insertRow(0);
                     var cell1 = row.insertCell(0);
@@ -114,7 +119,8 @@
                 }
             }
         }
-
+        
+        //chamar pelo menos uma vez...
         SearchBuildTable(login, courses);
         agr();
         document.getElementById("item07").className += " active";

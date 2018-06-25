@@ -96,17 +96,21 @@
 
     <script>        
 
+
+        // pegar valores importantes que serão usados depois
         var id = "";
         var users = ManageProfiles.get();
         var courses = ManageCourses.get();
 
+        // se o que trouxer para está página for ter clickado em um perfil, então esse if else mostrará o dito perfil ou se não o usuário logado ;)
         if (sessionStorage.IDSender) {
             id = sessionStorage.IDSender;
-           
 
         } else {
             id = sessionStorage.getItem("userLogged");
             var now = document.getElementById("h1");
+            now.innerHTML = "Seu Perfil";
+            //reservado para uso futuro
             // var nowbtn = document.createElement("button");
             // nowbtn.type = "button";
             // nowbtn.className = "btn btn-dark btn-lg";
@@ -114,7 +118,6 @@
             // nowbtn.onclick = function () {
             //     editProfile();
             // }
-            now.innerHTML = "Seu Perfil";
             // now.insertAdjacentElement("afterend", nowbtn);
             now.insertAdjacentElement("afterend", document.createElement("br"));
 
@@ -122,13 +125,16 @@
         }
 
 
-
+        // criar as informações na página
         function SearchBuildInformations(id, users, courses) {
+            // varrer os usuários e procurar pelo que interessa
             for (let i = 0; i < users.length; i++) {
+                // devido ao JSON esse IF serve para não dar erro ¯\_(ツ)_/¯ HAHAHAHAHAHAH, sabe Deus o que acontece com o JSON
                 if (i == 0) {
                     i = "0";
                 }
                 const element = users[i];
+                // //se o usuário for encontrado, então constrói as informações
                 if (id == element.login) {
                     var img = document.getElementById("PIC")
                     img.className = "rounded-circle";
@@ -138,9 +144,9 @@
                     document.getElementById("UPShowName").innerHTML = element.title;
                     document.getElementById("UPShowDescrip").innerHTML = element.descrip;
                     document.getElementById("UPShowMail").innerHTML = element.mail;
-
                     break;
                 }
+                // se der ruim por algum motivo
                 else if (i == users.length - 1) {
                     alert("nenhum ID encontrado");
                     document.getElementById("UPShowName").innerHTML = "mostrar Nome do usuario";
@@ -149,24 +155,27 @@
 
                 }
             }
+            // no perfil de alguém é colocado as aulas que esse perfil possui
             SearchBuildTable(id, users, courses);
         }
-
+        // autoexplicativo
         function clearTable() {
             var table = document.getElementById("tableCourses");
             table.innerHTML = "";
         }
 
+        // construir as aulas que o perfil mostrado no site possui
         function SearchBuildTable(id, users, courses) {
             clearTable();
             var table = document.getElementById("tableCourses");
             var conteudo = "";
-
+            //varrer os cursos em busca do dono
+            //Molejo-Dança da Vassoura.mp3
             for (let i = 0; i < courses.length; i++) {
                 const element = courses[i];
                 var login = element.owner;
                 var owner = ManageProfiles.get(login);
-
+                // se contrar, construir tabela com as informações e um LINK
                 if (id == owner["0"].login) {
                     var row = table.insertRow(0);
                     var cell1 = row.insertCell(0);
@@ -179,7 +188,7 @@
                     };
 
                 }
-
+                // se der ruim por algum motivo
                 else if (i == courses.length - 1 && table.innerHTML == "") {
 
                     var row = table.insertRow(0);
@@ -190,11 +199,14 @@
                 }
             }
         }
+
+        //autoexplicativo
         function clear() {
             var prof = document.getElementById("editHERE");
             prof.innerHTML = "";
         }
 
+        // reservado para uso futuro
         // function objEditProf(title, mail, senha, descrip, save, div) {
         //     this.title = title;
         //     this.mail = mail;
@@ -204,6 +216,7 @@
         //     this.div = div;
         // }
 
+        // reservado para uso futuro
         // function createInputs() {
         //     var obj = new objEditProf;
         //     var classe = "form-control";
@@ -239,11 +252,13 @@
         //     editBuilder(obj);
         // }
 
+        // reservado para uso futuro
         // function editBuilder(obj) {
         //     clear();
         //     var prof = document.getElementById("editHERE");
         //     obj.div.insertAdjacentElement("afterbegin", obj.save);
 
+        // reservado para uso futuro
         //     prof.insertAdjacentElement("afterbegin", obj.div);
         //     prof.insertAdjacentElement("afterbegin", document.createElement("br"));
         //     prof.insertAdjacentElement("afterbegin", obj.descrip);
@@ -255,11 +270,10 @@
         //     prof.insertAdjacentElement("afterbegin", obj.title);
         // }
 
+        // reservado para uso futuro
         // function sendEditProf(obj) {
-
         //     var login = sessionStorage.userLogged;
-        //     var profile = ManageProfiles.get(login);            
-
+        //     var profile = ManageProfiles.get(login);          
         //     for (key in obj) {
         //         var str = key;
         //         var now = document.getElementById(str);
@@ -267,26 +281,23 @@
         //             var nowID = now.id;
         //             if (now.value) {
         //                 profile["0"][nowID] = document.getElementById(nowID).value;
-
-
         //             }
         //         }
         //     }
-
         //     ManageProfiles.update(login, profile);
-           
         //     alert("Peril alterado com sucesso");
         //     location.href = "userProfile.html";
         // }
 
+        // reservado para uso futuro
         // function editProfile() {
-
         //     createInputs();
         // }
-
+            
+        //chamar pelo menos uma vez para ter alguma coisa na tela...
         SearchBuildInformations(id, users, courses);
         agr();
-        
+
         if (sessionStorage.userLogged) {
             document.getElementById("item04").className += " active";
         }

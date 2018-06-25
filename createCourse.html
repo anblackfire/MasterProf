@@ -63,9 +63,9 @@
             <h1 class="display-3">Cadastro de Aulas</h1>
         </div>
     </div>
-    <form onsubmit= tagGrabber(nCourseTags); action="userProfile.html">
+    <form onsubmit=t agGrabber(nCourseTags); action="userProfile.html">
         <div class="row justify-content-center">
-            <div class="col-8 ">               
+            <div class="col-8 ">
                 <div class="input-group  mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default"></span>
@@ -93,7 +93,7 @@
                 <div class="input-group  mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default"></span>
-                    </div>                    
+                    </div>
                     <textarea class="form-control" aria-label="With textarea" id="courseDescrip" placeholder="Descrição" required title="Informe qualquer coisa"></textarea>
                 </div>
                 <!-- <div class="input-group  mb-3 justify-content-center">
@@ -154,10 +154,15 @@
         </div>
     </form>
     <script>
-
+        // informações importantes que serão usadas já
+        var dias = [];
+        var horas = [];
+        var nCourseTags = [];
         var courses = ManageCourses.get();
 
         function time() {
+
+            // reservado para uso futuro
             // nCourseTags = nCourseTags;
             // var a = document.getElementById("horas");
             // var b = document.getElementById("dias");
@@ -166,7 +171,6 @@
             // for (var i = 0; i < b.options.length; i++) {
             //     if (b.options[i].selected == true) {
             //         dias.push(b.options[i].value);
-
             //     }
             //     else {
             //         dias.push(0);
@@ -175,7 +179,6 @@
             // for (var i = 0; i < a.options.length; i++) {
             //     if (a.options[i].selected == true) {
             //         horas.push(a.options[i].value);
-
             //     }
             //     else {
             //         horas.push(0);
@@ -188,33 +191,32 @@
 
         function tagGrabber() {
             nCourseTags = document.getElementById("courseTag").value;
+            // reservado para uso futuro
             // nCourseTags = [];
             // for (var i = 0; i < a.options.length; i++) {
             //     if (a.options[i].selected == true) {
             //         nCourseTags.push(a.options[i].value);
-
             //     }
             // }
             time(nCourseTags, dias, horas);
         }
-        //funcoes dos botoes
-        var dias = [];
-        var horas = [];
-        var nCourseTags = [];
+
+
+
+        // reservado para uso futuro
         // document.getElementById("btnSend").addEventListener("click", function () {
         //     // verify();
         //     //Retirar createNewProfile() e colocar verify no lugar
-
         //     tagGrabber(nCourseTags, dias, horas);
-
         // });
-
         // var week = document.getElementsByClassName("weekday");
         // console.log(week);
 
+        // coletar as informações dos inputs e criar a aula nova
         function createNewCourse() {
-
+            //função para o ID
             var A = NewID();
+            // informações
             var B = sessionStorage.userLogged;
             var C = document.getElementById("courseTitle").value;
             var D = document.getElementById("courseDescrip").value;
@@ -222,30 +224,35 @@
             var F = nCourseTags;
             var G = dias;
             var H = horas;
-            var I = "";
-            // var a = new Course(A, B, C, D, E, F, G, H);
-            ManageCourses.add(new Course(A, B, C, D, E, F, G, H, I));
-            // courses.push(a);
+            // contracted tem que ser "" por padrão, pois é usado dessa forma mesmo
+            var I = "";            
+            // se tudo deu certo e nada deu errado, então é criado uma aula nova no nosso Banco de Dados supimpa
+            ManageCourses.add(new Course(A, B, C, D, E, F, G, H, I));            
             alert("Aula cadastrada com sucesso");
         }
 
+        //cria um id aleatório e chama verificação
         function NewID() {
             var generated = Math.floor(Math.random() * 9999) + 1111;
             IDVerify(generated);
             return generated;
         }
 
+        // lê os IDs disponíveis e chama outra vez a função que cria um ID se necessário
         function IDVerify(generated) {
-
+            // varre as aulas comparando o ID delas
             for (let i = 0; i < courses.length; i++) {
+                 // devido ao JSON esse IF serve para não dar erro ¯\_(ツ)_/¯ HAHAHAHAHAHAH, sabe Deus o que acontece com o JSON
                 if (i == 0) {
                     i = "0";
                 }
                 const element = courses[i];
+                // compara e chama novamente
                 if (element.id == generated) {
                     NewID();
                 }
             }
+            // ou retorna o ID se nada de certo estiver errado
             return generated;
         }
 
