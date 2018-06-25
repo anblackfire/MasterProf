@@ -168,6 +168,7 @@
                         sessionStorage.IDSender = owner["0"].login;
                         location.href = "userProfile.html";
                     };
+                   
                     document.getElementById("CPShowTitle").innerHTML = element.title;
                     document.getElementById("CPShowDescrip").innerHTML = element.descrip;
                     document.getElementById("CPShowOwner").innerHTML = owner["0"].title;
@@ -228,7 +229,7 @@
 
         function Contract() {
 
-            course.Contract = userLogged;
+            course.Contract = sessionStorage.userLogged;
             ManageCourses.update(id,course);
 
             // var a = document.getElementById("dias");
