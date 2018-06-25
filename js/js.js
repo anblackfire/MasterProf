@@ -115,7 +115,7 @@ function agr() {
 // declaracao de variaveis e objetos
 var courses = [];
 var users = [];
-var userLogged = "";
+// var userLogged = "";
 function Profile(title, descrip, mail, pic, login, pass, location) {
     // this.id = id;
     // this.name = document.getElementById("userName").value;

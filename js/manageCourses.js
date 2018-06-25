@@ -20,13 +20,13 @@ const ManageCourses = (function () {
         // localStorage.setItem("courses", courses);
     }
 
-    function getCourses(tag) {
+    function getCourses(tag, id) {
         // if (title && tag) {
         //     var tagFilter = courses.filter(c => c.tag.toLowerCase() === tag.toLowerCase());
         //     return tagFilter.filter(c => c.title.toLowerCase() === title.toLowerCase());
         // }
-        // if (title)
-        //     return courses.filter(c => c.title.toLowerCase() === title.toLowerCase());
+        // if (id)
+        //     return courses.filter(c => c.id.toLowerCase() === id.toLowerCase());
         if (tag)
             return courses.filter(c => c.tag.toLowerCase() === tag.toLowerCase());
         return courses;

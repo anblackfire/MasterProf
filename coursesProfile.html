@@ -146,8 +146,8 @@
         // var horariosToCompare = "";
         var courses = ManageCourses.get();
         var id = sessionStorage.courseSender;
-
-        SearchBuild(id, courses)       
+        var course = "";
+        SearchBuild(id, courses, course)       
 
         function SearchBuild(id, courses) {
             for (let i = 0; i < courses.length; i++) {
@@ -159,7 +159,7 @@
                     var img = document.getElementById("PIC")
                     var login = element.owner;
                     var owner = ManageProfiles.get(login);
-                    
+                    course = element;
                     img.src = "img/" + owner["0"].pic;
                     img.className = "rounded-circle";
                     img.width = "224";
@@ -228,6 +228,8 @@
 
         function Contract() {
 
+            course.Contract = userLogged;
+            ManageCourses.update(id,course);
 
             // var a = document.getElementById("dias");
             // var b = document.getElementById("horas");
