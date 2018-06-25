@@ -73,9 +73,9 @@
 
     <script>
 
-        SearchBuildTable(login, courses);
         
-        var login = sessionStorage.userLogged;
+
+        var login = sessionStorage.getItem("userLogged");
         var courses = ManageCourses.get();
 
         function clearTable() {
@@ -112,6 +112,7 @@
             }
         }
 
+        SearchBuildTable(login, courses);
         agr();
         document.getElementById("item07").className += " active";
     </script>
