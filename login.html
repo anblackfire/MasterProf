@@ -115,8 +115,8 @@
                 if (subLogin == users[i].login && subPass == users[i].pass) {
                     // em caso de sucesso guarda o usuário logado e o form se encarrega de ir para a pagina de perfil
                     sessionStorage.setItem("IDsender", "");
-                    sessionStorage.setItem("userLogged", users[i].login);
-                    alert("usuário logado com sucesso, Bem vindo " + users[i].title);
+                    sessionStorage.setItem("userLogged", element.login);
+                    alert("usuário logado com sucesso, Bem vindo " + element.title);
                 }
             }
         }
