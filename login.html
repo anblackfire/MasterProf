@@ -59,14 +59,15 @@
         </div>
     </div>
 
-    <form onsubmit= LoginSearch();>
+    <form onsubmit=L oginSearch();>
         <div class="row justify-content-center">
             <div class="col-8">
                 <div class="input-group  mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default"></span>
                     </div>
-                    <input type="text" placeholder="Login" id="userLogin" class="form-control"  pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required title="Preencha um login válido">
+                    <input type="text" placeholder="Login" id="userLogin" class="form-control" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required
+                        title="Preencha um login válido">
                 </div>
 
                 <div class="input-group  mb-3">
@@ -79,19 +80,19 @@
 
             </div>
         </div>
-    </form>
 
-    <div class="row justify-content-center">
-        <div class="col-8 text-center">
 
-            <input type="submit" id="btnSendLogin" class="btn btn-dark btn-lg">
-            <div class="diva"></div>
-            <button type="button" id="btnPageSignUp" class="btn btn-dark btn-lg">Pagina de Cadastro</button>
-            <div class="diva"></div>
+        <div class="row justify-content-center">
+            <div class="col-8 text-center">
 
+                <input type="submit" id="btnSendLogin" class="btn btn-dark btn-lg">
+                <div class="diva"></div>
+                <button type="button" id="btnPageSignUp" class="btn btn-dark btn-lg">Pagina de Cadastro</button>
+                <div class="diva"></div>
+
+            </div>
         </div>
-    </div>
-
+    </form>
 
     <script>
         //botoes
@@ -116,7 +117,7 @@
                 }
             }
         }
-       
+
         agr();
         document.getElementById("item02").className += " active";
     </script>
