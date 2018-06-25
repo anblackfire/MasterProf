@@ -159,7 +159,7 @@
                     var img = document.getElementById("PIC")
                     var login = element.owner;
                     var owner = ManageProfiles.get(login);
-
+                    
                     img.src = "img/" + owner["0"].pic;
                     img.className = "rounded-circle";
                     img.width = "224";
@@ -175,7 +175,9 @@
                     document.getElementById("CPShowTag").innerHTML = element.tag;
                     // dayToCompare = element.dias;
                     // horariosToCompare = element.horas;
-
+                    if (sessionStorage.userLogged == owner["0"].login) {
+                        document.getElementById("btnContratar").disabled = true;
+                    }
                     break;
                 }
                 else if (i == courses.length) {
@@ -219,13 +221,14 @@
         //     // console.log(day);
         //     // console.log(horariosToCompare);
         // }
-
+               
         document.getElementById("btnContratar").addEventListener("click", function () {
             Contract();                       
         });
 
         function Contract() {
-            
+
+
             // var a = document.getElementById("dias");
             // var b = document.getElementById("horas");
             // // dias = [];
