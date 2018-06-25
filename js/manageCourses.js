@@ -38,12 +38,19 @@ const ManageCourses = (function () {
     }
 
     function removeCourse(course) {
-        var c = courses.filter(c => c.id === course.id);        
+        var c = courses.filter(c => c.id === course.id);
+        for (let i = 0; i < courses.length; i++) {
+            const element = courses[i];
+            if (element == c) {
+                courses.splice(i, 1);
+                save();
+            }
+
+        }
         if (c === -1) {
             return;
         }
-        courses.splice(c,1);
-        save();
+
     }
 
     function updateCourse(course) {
