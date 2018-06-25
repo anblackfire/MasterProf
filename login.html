@@ -110,7 +110,7 @@
             for (let i = 0; i < users.length; i++) {
                 const element = users[i];
                 if (subLogin == users[i].login && subPass == users[i].pass) {
-                    sessionStorage.setItem("IDsender", users[i].login);
+                    sessionStorage.setItem("IDsender", "");
                     sessionStorage.setItem("userLogged", users[i].login);
                     alert("usuário logado com sucesso, Bem vindo " + users[i].title);                    
                     // location.href = "userProfile.html";
