@@ -39,11 +39,11 @@ const ManageCourses = (function () {
 
     function removeCourse(id) {
         var c = courses.indexOf(id == courses.id);
-
+        console.log(c);
         if (c === -1) {
             return;
         }
-        
+
         courses.splice(c, 1);
         save();
     }
