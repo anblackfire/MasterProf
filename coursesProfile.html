@@ -24,7 +24,7 @@
     <script type="text/javascript" src="js/manageCourses.js"></script>
     <script type="text/javascript" src="js/js.js"></script>
 
-      
+
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.js"></script> -->
 
@@ -135,6 +135,9 @@
             <div class="row justify-content-center">
                 <div class="col-8 text-center ">
                     <button type="button" id="btnContratar" class="btn btn-dark btn-lg">Contratar</button>
+                    <br>
+                    <p id="statusLabel">Está Aula ainda não foi contratada por ninguém</p>
+                    <br>
                 </div>
             </div>
         </div>
@@ -147,7 +150,7 @@
         var courses = ManageCourses.get();
         var id = sessionStorage.courseSender;
         var course = "";
-        SearchBuild(id, courses, course)       
+        SearchBuild(id, courses, course)
 
         function SearchBuild(id, courses) {
             for (let i = 0; i < courses.length; i++) {
@@ -168,7 +171,7 @@
                         sessionStorage.IDSender = owner["0"].login;
                         location.href = "userProfile.html";
                     };
-                    
+
                     document.getElementById("CPShowTitle").innerHTML = element.title;
                     document.getElementById("CPShowDescrip").innerHTML = element.descrip;
                     document.getElementById("CPShowOwner").innerHTML = owner["0"].title;
@@ -180,13 +183,27 @@
                         document.getElementById("btnContratar").disabled = true;
                         var delBtn = document.createElement("button");
                         delBtn.innerHTML = "Excluir Aula";
-                        delBtn.onclick = function () {
-                            alert("Aula deletada");
+                        delBtn.onclick = function () {                            
                             DeleteCourse();
                         };
-                        delBtn.className="btn btn-dark btn-lg";
+                        delBtn.className = "btn btn-dark btn-lg";
                         delBtn.type = "button";
+                        document.getElementById("btnContratar").insertAdjacentElement("afterend", document.createElement("br"));
                         document.getElementById("btnContratar").insertAdjacentElement("afterend", delBtn);
+                    }
+                    if (sessionStorage.userLogged == element.contract) {
+                        document.getElementById("btnContratar").disabled = true;
+                        document.getElementById("statusLabel").innerHTML = "Você contratou esta aula";
+                        var cancelBtn = document.createElement("button");
+                        cancelBtn.innerHTML = "Excluir Aula";
+                        cancelBtn.onclick = function () {                            
+                            CancelCourse();
+                        };
+                        cancelBtn.className = "btn btn-dark btn-lg";
+                        cancelBtn.type = "button";
+                        document.getElementById("statusLabel").insertAdjacentElement("afterend", document.createElement("br"));
+                        document.getElementById("statusLabel").insertAdjacentElement("afterend", delBtn);
+
                     }
                     break;
                 }
@@ -231,15 +248,22 @@
         //     // console.log(day);
         //     // console.log(horariosToCompare);
         // }
-               
+
         document.getElementById("btnContratar").addEventListener("click", function () {
-            Contract();                       
+            Contract();
         });
 
         function DeleteCourse() {
             ManageCourses.remove(course);
+            alert("Aula deletada");
         }
 
+
+        function CancelCourse() {
+            course.contract = "";
+            ManageCourses.update(course);
+            alert("Aula CANCELADA com sucesso");
+        }
         function Contract() {
 
             course.contract = sessionStorage.userLogged;
@@ -265,12 +289,12 @@
             // }
 
             alert("Aula contratada com sucesso");
-           
+
         }
 
         agr();
         document.getElementById("item01").className += " active";
-        
+
     </script>
 
 
