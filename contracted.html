@@ -73,7 +73,8 @@
 
     <script>
 
-
+        SearchBuildTable(login, courses);
+        
         var login = sessionStorage.userLogged;
         var courses = ManageCourses.get();
 
@@ -89,7 +90,6 @@
 
             for (let i = 0; i < courses.length; i++) {
                 const element = courses[i];
-
                 if (login == element.contracted) {
                     var row = table.insertRow(0);
                     var cell1 = row.insertCell(0);
@@ -102,7 +102,6 @@
                     };
 
                 }
-
                 else if (i == courses.length - 1 && table.innerHTML == "") {
                     var row = table.insertRow(0);
                     var cell1 = row.insertCell(0);
