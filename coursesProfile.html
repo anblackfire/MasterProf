@@ -178,11 +178,13 @@
                     // horariosToCompare = element.horas;
                     if (sessionStorage.userLogged == owner["0"].login) {
                         document.getElementById("btnContratar").disabled = true;
-                        var delBtn = document.createElement("button")
+                        var delBtn = document.createElement("button");
                         delBtn.innerHTML = "Excluir Aula";
                         delBtn.onclick = function () {
                             alert("Aula deletada");
-                        }
+                        };
+                        delBtn.className="btn btn-dark btn-lg";
+                        delBtn.type = "button";
                         document.getElementById("btnContratar").insertAdjacentElement("afterend", delBtn);
                     }
                     break;
