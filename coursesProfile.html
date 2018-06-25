@@ -257,10 +257,9 @@
             if (course.contract == "") {
                 document.getElementById("statusLabel").innerHTML = "Está Aula ainda não foi contratada por ninguém";
             }else{
-                document.getElementById("statusLabel").innerHTML = "Está Aula foi contratada pelo usuário: " + course.contract;
-            }
-
-           
+                document.getElementById("btnContratar").disabled = true;
+                document.getElementById("statusLabel").innerHTML = "Está Aula já foi contratada";
+            }           
 
         }
 
