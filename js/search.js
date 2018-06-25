@@ -102,20 +102,17 @@ function CreateElements(x, arrayFiltrado, owner) {
 
     // para cada indice que veio do array determinado pela busca
     for (let i = 0; i < arrayFiltrado.length; i++) {
-        // cria o OBJ para guardar informações
+        // cria o OBJ que guarda os elementos a serem criados
         var obj = new LetterOBJ;
-        //criar elementos de img e labels
         const element = arrayFiltrado[i];
-
-
-
+        //chama a próxima função
         Content(x, arrayFiltrado, obj, i, owner);
     }
 }
 
 // busca o conteudo de cada elemento do array e manda para o build table
 function Content(x, arrayFiltrado, obj, i, owner) {
-    // Atribuir o conteudo que interessa baseado no filtro original (perfil ou aula)
+    //se perfil, certos parametros são atribuidos
     if (arrayFiltrado[i].login) {
         obj.currentID = arrayFiltrado[i].login;
         obj.ownerTitle.className = "lead  text-center titulo";
@@ -125,9 +122,9 @@ function Content(x, arrayFiltrado, obj, i, owner) {
         obj.descrip.innerHTML = arrayFiltrado[i].descrip;
 
         BuildTableProfiles(obj);
-
     }
 
+    //se aulas, certos parametros são atribuidos
     else if (arrayFiltrado[i].id) {
         obj.currentID = arrayFiltrado[i].id;
         obj.IMG.src = "img/" + owner["0"].pic;
@@ -143,16 +140,15 @@ function Content(x, arrayFiltrado, obj, i, owner) {
 
 }
 
-// construir tabela com img e conteudo recebidos
+// Builda no mesmo lugar que a BuildTableCourses, mas cada um connstroi uma coisa diferente:
 function BuildTableProfiles(obj) {
-    // insere linha
+    // criação de divs
     var here = document.getElementById("buildHere")
-
     var divRow = document.createElement("div");
     var divImg = document.createElement("div");
     var divTxt = document.createElement("div");
     var divCst = document.createElement("div");
-
+    // inserção das informações especificadas pela pesquisa 
     divRow.className = "row justify-content-md-center align-items-center block link";
     divRow.id = obj.currentID;
     divRow.onclick = function () {
@@ -163,6 +159,7 @@ function BuildTableProfiles(obj) {
     divTxt.className = "col-10 col-lg-8";
     divCst.className = "col-sm ";
 
+    // inserção dos elementos, já com conteúdo, nos lugares certos do site
     obj.DIV2.insertAdjacentElement("afterbegin", obj.IMG);
     divImg.insertAdjacentElement("afterbegin", obj.DIV2);
     divCst.insertAdjacentElement("afterbegin", obj.location);
@@ -173,56 +170,49 @@ function BuildTableProfiles(obj) {
     divRow.insertAdjacentElement("afterbegin", divCst);
     divRow.insertAdjacentElement("afterbegin", divTxt);
     divRow.insertAdjacentElement("afterbegin", divImg);
-
     here.insertAdjacentElement("afterbegin", divRow);
 
 }
 
-// construir tabela com img e conteudo recebidos
+// Builda no mesmo lugar que a BuildTableProfiles, mas cada um connstroi uma coisa diferente:
 function BuildTableCourses(obj) {
-    // insere linha
+    // criação de divs
     var here = document.getElementById("buildHere")
-
     var divRow = document.createElement("div");
     var divImg = document.createElement("div");
     var divTxt = document.createElement("div");
     var divCst = document.createElement("div");
-
+    // inserção das informações especificadas pela pesquisa 
     divRow.className = "row justify-content-md-center align-items-center block link";
     divRow.id = obj.currentID;
     divRow.onclick = function () {
         sessionStorage.courseSender = obj.currentID;
         location.href = "coursesProfile.html";
     };
-
-
     divImg.className = "col-md-auto tdimg";
     divTxt.className = "col-10 col-lg-8";
     divCst.className = "col-sm";
-
+    // inserção dos elementos, já com conteúdo, nos lugares certos do site
     obj.DIV2.insertAdjacentElement("afterbegin", obj.IMG);
     divImg.insertAdjacentElement("afterbegin", obj.DIV2);
     divCst.insertAdjacentElement("afterbegin", obj.location);
     divCst.insertAdjacentElement("afterbegin", document.createElement("br"));
     divCst.insertAdjacentElement("afterbegin", obj.cost);
-
     divTxt.insertAdjacentElement("afterbegin", obj.descrip);
     divTxt.insertAdjacentElement("afterbegin", document.createElement("br"));
-
     divTxt.insertAdjacentElement("afterbegin", obj.ownerTitle);
     divTxt.insertAdjacentElement("afterbegin", document.createElement("br"));
     divTxt.insertAdjacentElement("afterbegin", obj.courseTitle);
     here.insertAdjacentElement("afterbegin", document.createElement("br"));
-
     divRow.insertAdjacentElement("afterbegin", divCst);
     divRow.insertAdjacentElement("afterbegin", divTxt);
     divRow.insertAdjacentElement("afterbegin", divImg);
-
     here.insertAdjacentElement("afterbegin", divRow);
 
 
 }
 
+// função que cria o modelo de OBJ que guarda as informações, foi chamado lá em cima.
 function LetterOBJ(currentID, courseTitle, ownerTitle, location, descrip, cost, IMG, DIV, DIV2) {
     this.currentID = "";
     this.courseTitle = document.createElement("label");
