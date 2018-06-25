@@ -136,7 +136,7 @@
                 <div class="col-8 text-center ">
                     <button type="button" id="btnContratar" class="btn btn-dark btn-lg">Contratar</button>
                     <br>
-                    <p id="statusLabel">Está Aula ainda não foi contratada por ninguém</p>
+                    <p id="statusLabel"></p>
                     <br>
                 </div>
             </div>
@@ -171,7 +171,7 @@
                         sessionStorage.IDSender = owner["0"].login;
                         location.href = "userProfile.html";
                     };
-
+                    StatusCourse();
                     document.getElementById("CPShowTitle").innerHTML = element.title;
                     document.getElementById("CPShowDescrip").innerHTML = element.descrip;
                     document.getElementById("CPShowOwner").innerHTML = owner["0"].title;
@@ -252,6 +252,17 @@
         document.getElementById("btnContratar").addEventListener("click", function () {
             Contract();
         });
+
+        function StatusCourse() {
+            if (course.contract == "") {
+                document.getElementById("statusLabel").innerHTML = "Está Aula ainda não foi contratada por ninguém";
+            }else{
+                document.getElementById("statusLabel").innerHTML = "Está Aula foi contratada pelo usuário: " + course.contract;
+            }
+
+           
+
+        }
 
         function DeleteCourse() {
             ManageCourses.remove(course);
