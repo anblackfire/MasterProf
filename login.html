@@ -59,7 +59,7 @@
         </div>
     </div>
 
-    <form onsubmit= LoginSearch();>
+    <form onsubmit= LoginSearch(); action="userProfile.html">
         <div class="row justify-content-center">
             <div class="col-8">
                 <div class="input-group  mb-3">
@@ -112,9 +112,8 @@
                 if (subLogin == users[i].login && subPass == users[i].pass) {
                     sessionStorage.setItem("IDsender", users[i].login);
                     sessionStorage.setItem("userLogged", users[i].login);
-                    alert("usuário logado com sucesso, Bem vindo " + users[i].title);
-                    
-                    location.href = "userProfile.html";
+                    alert("usuário logado com sucesso, Bem vindo " + users[i].title);                    
+                    // location.href = "userProfile.html";
                     
                 }
             }
