@@ -200,6 +200,16 @@
         
     },
     {
+        "title": "Dr. Rey",
+        "descrip": "Ac tortor dignissim convallis aenean et tortor at. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. ",
+        "mail": "emagreca@mail.com",
+        "pic": "REY.jpg",
+        "login": "emagreca",
+        "pass": "1234",
+        "location": "Holywood"
+        
+    },
+    {
         "title": "Yan Lee",
         "descrip": "Sed vulputate odio ut enim blandit volutpat maecenas volutpat. Aliquet porttitor lacus luctus accumsan tortor posuere.",
         "mail": "yanlee@mail.com",
@@ -217,16 +227,6 @@
         "login": "flavioportugal",
         "pass": "1234",
         "location": "Adivinha"
-        
-    },
-    {
-        "title": "Dr. Rey",
-        "descrip": "Ac tortor dignissim convallis aenean et tortor at. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. ",
-        "mail": "emagreca@mail.com",
-        "pic": "REY.jpg",
-        "login": "emagreca",
-        "pass": "1234",
-        "location": "Holywood"
         
     }
    
