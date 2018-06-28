@@ -286,6 +286,17 @@
         "contract": ""
     },
     {
+        "id": "1138",
+        "owner": "emagreca",
+        "title": "Aulas de Inglês",
+        "descrip":  "Viva brasil, aulas de inglês, estética e politca com o cirurgião mais amado da América!",
+        "cost": "186",
+        "tag": "idioma",
+        "dias": [],
+        "horas": [],
+        "contract": ""
+    },
+    {
         "id": "1137",
         "owner": "ingriddeassis",
         "title": "Aulas de Piano",
@@ -307,5 +318,6 @@
         "horas": [],
         "contract": ""
     }
+   
    
 ]

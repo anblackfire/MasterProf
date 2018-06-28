@@ -218,6 +218,16 @@
         "pass": "1234",
         "location": "Adivinha"
         
+    },
+    {
+        "title": "Dr. Rey",
+        "descrip": "Ac tortor dignissim convallis aenean et tortor at. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. ",
+        "mail": "emagreca@mail.com",
+        "pic": "REY.jpg",
+        "login": "emagreca",
+        "pass": "1234",
+        "location": "Holywood"
+        
     }
    
 ]
