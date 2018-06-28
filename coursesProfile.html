@@ -190,32 +190,35 @@
                     // dayToCompare = element.dias;
                     // horariosToCompare = element.horas;
                     // se o usuário logado for o dono da aula cria novas coisas, coloca elas no lugar e desabilita o botao de contratar. Tudo de uma vez
-                    if (sessionStorage.userLogged == owner["0"].login) {
-                        document.getElementById("btnContratar").disabled = true;
-                        var delBtn = document.createElement("button");
-                        delBtn.innerHTML = "Excluir Aula";
-                        delBtn.onclick = function () {
-                            DeleteCourse();
-                        };
-                        delBtn.className = "btn btn-dark btn-lg";
-                        delBtn.type = "button";
-                        document.getElementById("btnContratar").insertAdjacentElement("afterend", document.createElement("br"));
-                        document.getElementById("btnContratar").insertAdjacentElement("afterend", delBtn);
-                    }
-                    // se o usuário logado for o cara que contratou a aula cria otas coisas, coloca elas no lugar e desabilita o botao de contratar. Tudo de uma vez
-                    if (sessionStorage.userLogged == element.contract) {
-                        document.getElementById("btnContratar").disabled = true;
-                        document.getElementById("statusLabel").innerHTML = "Você contratou esta aula";
-                        var cancelBtn = document.createElement("button");
-                        cancelBtn.innerHTML = "Cancelar contratação";
-                        cancelBtn.onclick = function () {
-                            CancelCourse();
-                        };
-                        cancelBtn.className = "btn btn-dark btn-lg";
-                        cancelBtn.type = "button";
-                        document.getElementById("statusLabel").insertAdjacentElement("afterend", document.createElement("br"));
-                        document.getElementById("statusLabel").insertAdjacentElement("afterend", cancelBtn);
+                    if (sessionStorage.userLogged) {
 
+                        if (sessionStorage.userLogged == owner["0"].login) {
+                            document.getElementById("btnContratar").disabled = true;
+                            var delBtn = document.createElement("button");
+                            delBtn.innerHTML = "Excluir Aula";
+                            delBtn.onclick = function () {
+                                DeleteCourse();
+                            };
+                            delBtn.className = "btn btn-dark btn-lg";
+                            delBtn.type = "button";
+                            document.getElementById("btnContratar").insertAdjacentElement("afterend", document.createElement("br"));
+                            document.getElementById("btnContratar").insertAdjacentElement("afterend", delBtn);
+                        }
+                        // se o usuário logado for o cara que contratou a aula cria otas coisas, coloca elas no lugar e desabilita o botao de contratar. Tudo de uma vez
+                        if (sessionStorage.userLogged == element.contract) {
+                            document.getElementById("btnContratar").disabled = true;
+                            document.getElementById("statusLabel").innerHTML = "Você contratou esta aula";
+                            var cancelBtn = document.createElement("button");
+                            cancelBtn.innerHTML = "Cancelar contratação";
+                            cancelBtn.onclick = function () {
+                                CancelCourse();
+                            };
+                            cancelBtn.className = "btn btn-dark btn-lg";
+                            cancelBtn.type = "button";
+                            document.getElementById("statusLabel").insertAdjacentElement("afterend", document.createElement("br"));
+                            document.getElementById("statusLabel").insertAdjacentElement("afterend", cancelBtn);
+
+                        }
                     }
                     break;
                 }

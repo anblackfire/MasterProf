@@ -59,7 +59,7 @@
         </div>
     </div>
 
-    <form onsubmit=LoginSearch(); action="userProfile.html">
+    <form id="loginForm" onsubmit=LoginSearch(); action="login.html">
         <div class="row justify-content-center">
             <div class="col-8">
                 <div class="input-group  mb-3">
@@ -113,7 +113,9 @@
             for (let i = 0; i < users.length; i++) {
                 const element = users[i];
                 if (subLogin == users[i].login && subPass == users[i].pass) {
+
                     // em caso de sucesso guarda o usuário logado e o form se encarrega de ir para a pagina de perfil
+                    document.getElementById("loginForm").action = "userProfile.html";
                     sessionStorage.setItem("IDsender", "");
                     sessionStorage.setItem("userLogged", element.login);
                     alert("usuário logado com sucesso, Bem vindo " + element.title);
