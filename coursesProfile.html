@@ -258,7 +258,7 @@
 
         //gatilho
         document.getElementById("btnContratar").addEventListener("click", function () {
-            Contract();
+            Verify();
         });
 
         // escreve o status da aula, contratada ou não
@@ -286,6 +286,17 @@
             ManageCourses.update(course);
             alert("Aula CANCELADA com sucesso");
             location.reload();
+        }
+
+        function Verify() {
+            if (sessionStorage.userLogged) {
+                Contract();
+            }else{
+                
+                alert("Por favor, logue-se e tente novamente");                
+                location.href = "login.html";
+            }
+            
         }
 
         // contrata a aula mudando o status course.contract para o usuário atual
