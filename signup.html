@@ -129,7 +129,7 @@
         var A = document.getElementById("userName").value;
         var B = document.getElementById("userDescrip").value;
         var C = document.getElementById("userMail").value;
-        var D = "dog.jpg";
+        var D = parseInt(Math.random() * (13 - 0) + 0)+".jpg";
         //chama a verificação, pois não podem haver dois Logins iguais
         var E = LoginCheck();
         var F = document.getElementById("userPass").value;
